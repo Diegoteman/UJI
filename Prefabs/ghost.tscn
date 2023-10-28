@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctwhvbf28rcw1"]
+[gd_scene load_steps=10 format=3 uid="uid://ctwhvbf28rcw1"]
 
 [ext_resource type="Script" path="res://Scripts/Movement.gd" id="1_onowh"]
 [ext_resource type="Shader" path="res://Prefabs/ghost.gdshader" id="2_00ahp"]
@@ -47,10 +47,15 @@ _data = {
 "RESET": SubResource("Animation_tiqhs")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2f7l2"]
+size = Vector2(18, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1luip"]
 size = Vector2(60, 77)
 
-[node name="Ghost" type="Area2D"]
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_onowh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -66,14 +71,18 @@ libraries = {
 "": SubResource("AnimationLibrary_jmb7o")
 }
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2f7l2")
+
+[node name="GrabArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_1luip")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-1, 0.5)
-shape = SubResource("RectangleShape2D_1luip")
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="area_entered" from="GrabArea" to="." method="_on_area_entered"]
+[connection signal="area_exited" from="GrabArea" to="." method="_on_area_exited"]
