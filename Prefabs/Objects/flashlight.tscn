@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://c53vwbbvlq6ox"]
+
+[ext_resource type="Script" path="res://Prefabs/Objects/!object.gd" id="1_0hho1"]
+[ext_resource type="Script" path="res://Prefabs/Objects/flashlight.gd" id="3_td6x2"]
+[ext_resource type="Texture2D" uid="uid://dswbq6fdl7hoo" path="res://Sprites/flashlight.png" id="4_2v26a"]
+[ext_resource type="Texture2D" uid="uid://3v6vqrtsrd6t" path="res://Sprites/loight.png" id="4_w6afn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wl3q"]
+
+[node name="Object" type="Area2D" groups=["Object"]]
+script = ExtResource("1_0hho1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3wl3q")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -36.0
+offset_right = 25.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(25, 26)
+text = "[Grab]"
+
+[node name="Flashlight" type="Area2D" parent="."]
+script = ExtResource("3_td6x2")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Flashlight"]
+polygon = PackedVector2Array(10, 7.5, 37, 101, 0, 118, -37, 101, -10, 7.5)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Flashlight"]
+texture_filter = 1
+position = Vector2(1, -1)
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("4_2v26a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Flashlight/Sprite2D2"]
+position = Vector2(-24.5001, 24.9999)
+rotation = 1.5708
+texture = ExtResource("4_w6afn")
+
+[connection signal="area_entered" from="Flashlight" to="Flashlight" method="_on_area_entered"]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://d17kk338wdkam"]
+
+[sub_resource type="Gradient" id="Gradient_nkdik"]
+offsets = PackedFloat32Array(0, 0.185185, 0.362963, 0.518519, 0.659259, 0.814815, 0.948148)
+colors = PackedColorArray(0.74, 0, 0, 1, 1, 0.67451, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0.682353, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jcgmd"]
+gradient = SubResource("Gradient_nkdik")
+
+[sub_resource type="Gradient" id="Gradient_gv7ol"]
+offsets = PackedFloat32Array(0, 0.666667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vmmfl"]
+gradient = SubResource("Gradient_gv7ol")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_phxnh"]
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 40, 0)
+initial_velocity_min = 75.0
+initial_velocity_max = 400.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 2.0
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_vmmfl")
+color_initial_ramp = SubResource("GradientTexture1D_jcgmd")
+turbulence_enabled = true
+
+[node name="Node2D" type="GPUParticles2D"]
+amount = 120
+process_material = SubResource("ParticleProcessMaterial_phxnh")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0

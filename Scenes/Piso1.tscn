@@ -1,0 +1,251 @@
+[gd_scene load_steps=17 format=3 uid="uid://un184ixo8gtv"]
+
+[ext_resource type="Texture2D" uid="uid://clgvnxp5tk3tv" path="res://Sprites/Scenes/piso1pared.png" id="1_6ytaq"]
+[ext_resource type="Texture2D" uid="uid://o7r2dit3tqcg" path="res://Sprites/Scenes/piso1suelo.png" id="2_ij7vn"]
+[ext_resource type="PackedScene" uid="uid://ctwhvbf28rcw1" path="res://Prefabs/ghost.tscn" id="3_6x8ma"]
+[ext_resource type="Script" path="res://Scenes/Intro.gd" id="4_vnccn"]
+[ext_resource type="FontFile" uid="uid://cgu1vln16lc0q" path="res://Sprites/RetGanon.ttf" id="5_1kayc"]
+[ext_resource type="PackedScene" uid="uid://ckrohao10bhkr" path="res://Prefabs/talk.tscn" id="5_4sbx7"]
+[ext_resource type="PackedScene" uid="uid://car4vti5eua3i" path="res://Prefabs/NPCs/Freddy.tscn" id="6_vo86m"]
+[ext_resource type="Texture2D" uid="uid://dg85kaexb6lr" path="res://Sprites/Characters.png" id="7_ii7t5"]
+[ext_resource type="PackedScene" uid="uid://hj1w8djfrm2t" path="res://Prefabs/trigger.tscn" id="9_1mweq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4gdr"]
+size = Vector2(200, 1026)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akhcn"]
+size = Vector2(1080, 100)
+
+[sub_resource type="Animation" id="Animation_g54ko"]
+resource_name = "krug"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 2]
+}
+
+[sub_resource type="Animation" id="Animation_xnx6u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_qotcs"]
+resource_name = "Paco1"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_16cso"]
+resource_name = "Paco2"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [11, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nlggf"]
+_data = {
+"Paco1": SubResource("Animation_qotcs"),
+"Paco2": SubResource("Animation_16cso"),
+"RESET": SubResource("Animation_xnx6u"),
+"krug": SubResource("Animation_g54ko")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_ij7vn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_6ytaq")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_6x8ma")]
+z_index = 10
+position = Vector2(-22, 343)
+
+[node name="Camera2D" parent="CharacterBody2D" index="4"]
+limit_left = -550
+limit_top = -450
+limit_right = 550
+limit_bottom = 400
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-402, 296, -401, -275, -115, -273, -114, -181, -101, -181, -102, -274, 250, -278, 250, -23, 128, -23, 130, 58, -100, 55, -101, -111, -115, -110, -111, 152, 141, 150, 140, -12, 252, -12, 256, 151, 307, 152, 305, 55, 264, 55, 269, -28, 398, -27, 402, 55, 365, 58, 364, 146, 400, 148, 398, 228, 35, 230, 34, 297, 19, 298, 18, 390, -68, 391, -66, 298, -81, 296, -82, 226, -96, 229, -96, 296, -398, 297, -417, 397, -68, 397, 34, 397, 439, 398, 440, -373, -466, -381, -492, 395, -429, 397)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-600, -13)
+shape = SubResource("RectangleShape2D_r4gdr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(600, -15)
+shape = SubResource("RectangleShape2D_r4gdr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(13, 450)
+shape = SubResource("RectangleShape2D_akhcn")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(23, -450)
+shape = SubResource("RectangleShape2D_akhcn")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.647059, 0.580392, 0.65098, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 3
+offset_left = -810.0
+offset_top = -554.0
+offset_right = 917.0
+offset_bottom = 772.0
+color = Color(0.105882, 0.0156863, 0.14902, 1)
+script = ExtResource("4_vnccn")
+Doc = "res://Dialogue/Intro.txt"
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.118
+anchor_top = 0.229
+anchor_right = 0.788
+anchor_bottom = 0.719
+offset_left = 132.214
+offset_top = 74.346
+offset_right = -143.876
+offset_bottom = 0.605957
+theme_override_fonts/font = ExtResource("5_1kayc")
+theme_override_font_sizes/font_size = 50
+text = "Hey. You. The funny looking ghost. 
+You were just murdered at this Halloween party, and now you’re stuck in a limbo between life and death. 
+To be released and finally put to rest, you shall spread the fear among those who have helped to kill you and straighten the karmic balance.
+Now go trick or treat those bastards!"
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Timer" type="Timer" parent="ColorRect"]
+wait_time = 0.07
+
+[node name="Freddy" parent="." groups=["Scared"] instance=ExtResource("6_vo86m")]
+position = Vector2(-342, -199)
+
+[node name="Kurnger" type="Area2D" parent="."]
+position = Vector2(-251, -200)
+
+[node name="NPC" type="Sprite2D" parent="Kurnger"]
+texture_filter = 1
+position = Vector2(0, 4)
+scale = Vector2(2, 2)
+texture = ExtResource("7_ii7t5")
+hframes = 5
+vframes = 5
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Kurnger/NPC"]
+autoplay = "krug"
+libraries = {
+"": SubResource("AnimationLibrary_nlggf")
+}
+
+[node name="Paco1" type="Area2D" parent="."]
+position = Vector2(-79, -56)
+
+[node name="NPC" type="Sprite2D" parent="Paco1"]
+texture_filter = 1
+position = Vector2(0, 4)
+scale = Vector2(2, 2)
+texture = ExtResource("7_ii7t5")
+hframes = 5
+vframes = 5
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paco1/NPC"]
+autoplay = "Paco1"
+libraries = {
+"": SubResource("AnimationLibrary_nlggf")
+}
+
+[node name="Paco2" type="Area2D" parent="."]
+position = Vector2(-33, -56)
+
+[node name="NPC" type="Sprite2D" parent="Paco2"]
+texture_filter = 1
+position = Vector2(0, 4)
+scale = Vector2(2, 2)
+texture = ExtResource("7_ii7t5")
+hframes = 5
+vframes = 5
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paco2/NPC"]
+autoplay = "Paco2"
+libraries = {
+"": SubResource("AnimationLibrary_nlggf")
+}
+
+[node name="Talk" parent="." instance=ExtResource("5_4sbx7")]
+z_index = 15
+position = Vector2(-296, -218)
+
+[node name="Talk2" parent="." instance=ExtResource("5_4sbx7")]
+z_index = 15
+position = Vector2(-56, -75)
+scale = Vector2(0.745, 0.745)
+
+[node name="Trigger" parent="." instance=ExtResource("9_1mweq")]
+position = Vector2(199, 29)
+Scene = "\"res://Scenes/piso_2.tscn\""
+Position = Vector2(80, 180)
+
+[editable path="CharacterBody2D"]

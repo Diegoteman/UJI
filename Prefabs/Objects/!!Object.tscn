@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://u5ffykgj642q"]
+
+[ext_resource type="Script" path="res://Prefabs/Objects/!object.gd" id="1_brccd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wl3q"]
+
+[node name="Object" type="Area2D" groups=["Object"]]
+script = ExtResource("1_brccd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3wl3q")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -36.0
+offset_right = 25.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(25, 26)
+text = "[Grab]"

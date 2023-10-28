@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dic2508cp7fq8"]
+[gd_scene load_steps=9 format=3 uid="uid://dic2508cp7fq8"]
 
-[ext_resource type="PackedScene" uid="uid://t0p30am7v4t8" path="res://Prefabs/npc.tscn" id="1_7nvk8"]
+[ext_resource type="PackedScene" uid="uid://o5i06nhcpm2h" path="res://Prefabs/npc.tscn" id="1_7nvk8"]
 [ext_resource type="PackedScene" uid="uid://b3cd05w4okaoy" path="res://Prefabs/point.tscn" id="2_qvjf3"]
 [ext_resource type="PackedScene" uid="uid://ctwhvbf28rcw1" path="res://Prefabs/ghost.tscn" id="3_o0mj6"]
-[ext_resource type="PackedScene" uid="uid://u5ffykgj642q" path="res://Prefabs/object.tscn" id="4_gjuoh"]
+[ext_resource type="PackedScene" uid="uid://u5ffykgj642q" path="res://Prefabs/Objects/!!Object.tscn" id="4_gjuoh"]
 [ext_resource type="PackedScene" uid="uid://ckrohao10bhkr" path="res://Prefabs/talk.tscn" id="5_xu4uv"]
+[ext_resource type="PackedScene" uid="uid://c53vwbbvlq6ox" path="res://Prefabs/Objects/flashlight.tscn" id="6_71fs2"]
+[ext_resource type="PackedScene" uid="uid://car4vti5eua3i" path="res://Prefabs/NPCs/Freddy.tscn" id="7_j31gc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uv61i"]
 size = Vector2(282, 95)
@@ -27,16 +29,22 @@ position = Vector2(848, 412)
 NearbyPoints = Array[NodePath]([NodePath("../Point"), NodePath("../Point2")])
 
 [node name="Ghost" parent="." instance=ExtResource("3_o0mj6")]
+objOffset = Vector2(-20, 0)
 
 [node name="Object" parent="." instance=ExtResource("4_gjuoh")]
 position = Vector2(162, 67)
 
 [node name="Talk" parent="." instance=ExtResource("5_xu4uv")]
 position = Vector2(-132, 66)
-Doc = "res://Dialogue/Carmen, Josemi.txt"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(32, -164.5)
 shape = SubResource("RectangleShape2D_uv61i")
+
+[node name="Object2" parent="." instance=ExtResource("6_71fs2")]
+position = Vector2(224, -24)
+
+[node name="Freddy" parent="." instance=ExtResource("7_j31gc")]
+position = Vector2(74, -17)

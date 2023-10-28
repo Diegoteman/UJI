@@ -1,0 +1,193 @@
+[gd_scene load_steps=13 format=3 uid="uid://bu4fh8df7xs60"]
+
+[ext_resource type="Texture2D" uid="uid://d2w5g44hjpyyp" path="res://Sprites/Scenes/piso2suelo.png" id="1_ir84l"]
+[ext_resource type="Texture2D" uid="uid://cot774i8m2x0d" path="res://Sprites/Scenes/piso2pared.png" id="2_n28he"]
+[ext_resource type="PackedScene" uid="uid://ctwhvbf28rcw1" path="res://Prefabs/ghost.tscn" id="3_pxit1"]
+[ext_resource type="Texture2D" uid="uid://dg85kaexb6lr" path="res://Sprites/Characters.png" id="4_nu1h8"]
+[ext_resource type="PackedScene" uid="uid://hj1w8djfrm2t" path="res://Prefabs/trigger.tscn" id="5_q62hn"]
+
+[sub_resource type="Animation" id="Animation_ymh23"]
+resource_name = "zorra"
+length = 0.8
+loop_mode = 1
+step = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_v125q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_eigkd"]
+resource_name = "coneja"
+length = 0.8
+loop_mode = 1
+step = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [9, 14]
+}
+
+[sub_resource type="Animation" id="Animation_y5lu6"]
+resource_name = "Witch"
+length = 0.8
+loop_mode = 1
+step = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [20, 19]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_arn8f"]
+_data = {
+"RESET": SubResource("Animation_v125q"),
+"Witch": SubResource("Animation_y5lu6"),
+"coneja": SubResource("Animation_eigkd"),
+"zorra": SubResource("Animation_ymh23")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vm0p7"]
+size = Vector2(200, 1026)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsq85"]
+size = Vector2(1080, 100)
+
+[node name="Piso2" type="Node2D"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_ir84l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_n28he")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_pxit1")]
+position = Vector2(80, 183)
+
+[node name="Camera2D" parent="CharacterBody2D" index="4"]
+limit_left = -480
+limit_top = -500
+limit_right = 600
+limit_bottom = 500
+
+[node name="NPC" type="Area2D" parent="."]
+position = Vector2(266, 227)
+
+[node name="NPC" type="Sprite2D" parent="NPC"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("4_nu1h8")
+hframes = 5
+vframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NPC/NPC"]
+autoplay = "zorra"
+libraries = {
+"": SubResource("AnimationLibrary_arn8f")
+}
+
+[node name="NPC3" type="Area2D" parent="."]
+position = Vector2(274, -189)
+
+[node name="NPC" type="Sprite2D" parent="NPC3"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("4_nu1h8")
+hframes = 5
+vframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NPC3/NPC"]
+autoplay = "Witch"
+libraries = {
+"": SubResource("AnimationLibrary_arn8f")
+}
+
+[node name="NPC2" type="Area2D" parent="."]
+position = Vector2(-308, -188)
+
+[node name="NPC" type="Sprite2D" parent="NPC2"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("4_nu1h8")
+hframes = 5
+vframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NPC2/NPC"]
+autoplay = "coneja"
+libraries = {
+"": SubResource("AnimationLibrary_arn8f")
+}
+
+[node name="Trigger" parent="." instance=ExtResource("5_q62hn")]
+position = Vector2(81, 260)
+Scene = "\"res://Scenes/Piso1.tscn\""
+Position = Vector2(200, 100)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(28, 297, 134, 294, 131, 87, 250, 90, 247, 183, 145, 182, 146, 289, 379, 293, 377, 176, 298, 178, 298, 84, 379, 87, 377, 9, 311, 6, 308, -86, 380, -89, 380, -271, 149, -266, 151, -84, 262, -83, 260, 2, -22, 7, -25, -85, 137, -88, 134, -269, -112, -269, -113, -87, -76, -84, -76, 7, -190, 6, -190, -85, -126, -83, -126, -270, -413, -269, -414, -82, -243, -80, -244, 10, -412, 12, -412, 86, -112, 87, -111, 179, -263, 181, -264, 245, 15, 245, 13, 182, -57, 180, -55, 89, 27, 87, 23, 402, -534, 414, -517, -401, 458, -395, 458, 399, 26, 406)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-600, -13)
+shape = SubResource("RectangleShape2D_vm0p7")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(600, -15)
+shape = SubResource("RectangleShape2D_vm0p7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(13, 450)
+shape = SubResource("RectangleShape2D_gsq85")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(23, -450)
+shape = SubResource("RectangleShape2D_gsq85")
+
+[editable path="CharacterBody2D"]
