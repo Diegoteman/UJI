@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://ctwhvbf28rcw1"]
+
+[ext_resource type="Script" path="res://Scripts/Movement.gd" id="1_onowh"]
+[ext_resource type="Shader" path="res://Prefabs/ghost.gdshader" id="2_00ahp"]
+[ext_resource type="Texture2D" uid="uid://bbdfx3gr7skwh" path="res://Sprites/spritesheetGHOST.png" id="2_lsabv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vfhbr"]
+shader = ExtResource("2_00ahp")
+shader_parameter/Color1 = Color(0.902344, 0.882813, 0.941406, 1)
+shader_parameter/Color2 = Color(1, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_ce66g"]
+resource_name = "Idle"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_tiqhs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jmb7o"]
+_data = {
+"Idle": SubResource("Animation_ce66g"),
+"RESET": SubResource("Animation_tiqhs")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1luip"]
+size = Vector2(60, 77)
+
+[node name="Ghost" type="Area2D"]
+script = ExtResource("1_onowh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_vfhbr")
+scale = Vector2(2, 2)
+texture = ExtResource("2_lsabv")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+autoplay = "Idle"
+libraries = {
+"": SubResource("AnimationLibrary_jmb7o")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_1luip")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dic2508cp7fq8"]
+
+[ext_resource type="PackedScene" uid="uid://t0p30am7v4t8" path="res://Prefabs/npc.tscn" id="1_7nvk8"]
+[ext_resource type="PackedScene" uid="uid://b3cd05w4okaoy" path="res://Prefabs/point.tscn" id="2_qvjf3"]
+[ext_resource type="PackedScene" uid="uid://ctwhvbf28rcw1" path="res://Prefabs/ghost.tscn" id="3_o0mj6"]
+[ext_resource type="PackedScene" uid="uid://u5ffykgj642q" path="res://Prefabs/object.tscn" id="4_gjuoh"]
+
+[node name="DebugRoom" type="Node2D"]
+
+[node name="NPC" parent="." instance=ExtResource("1_7nvk8")]
+position = Vector2(626, 300)
+
+[node name="Point" parent="." instance=ExtResource("2_qvjf3")]
+position = Vector2(410, 114)
+NearbyPoints = Array[NodePath]([NodePath("../Point2"), NodePath("../Point3")])
+
+[node name="Point2" parent="." instance=ExtResource("2_qvjf3")]
+position = Vector2(844, 113)
+NearbyPoints = Array[NodePath]([NodePath("../Point"), NodePath("../Point3")])
+
+[node name="Point3" parent="." instance=ExtResource("2_qvjf3")]
+position = Vector2(848, 412)
+NearbyPoints = Array[NodePath]([NodePath("../Point"), NodePath("../Point2")])
+
+[node name="Ghost" parent="." instance=ExtResource("3_o0mj6")]
+
+[node name="Object" parent="." instance=ExtResource("4_gjuoh")]
+position = Vector2(162, 67)

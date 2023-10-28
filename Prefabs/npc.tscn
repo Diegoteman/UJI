@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://t0p30am7v4t8"]
+
+[ext_resource type="Script" path="res://Scripts/NPC.gd" id="1_4ptv0"]
+[ext_resource type="Texture2D" uid="uid://enkvloqnx1ds" path="res://icon.svg" id="1_rhdbr"]
+
+[node name="NPC" type="Sprite2D"]
+texture = ExtResource("1_rhdbr")
+script = ExtResource("1_4ptv0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(20, 15, 150, 420, -150, 420, -20, 15)
