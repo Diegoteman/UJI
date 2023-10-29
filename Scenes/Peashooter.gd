@@ -2,9 +2,15 @@ extends Area2D
 
 var dead = false
 
+func _ready():
+	if GD.peaDead:
+		dead = true
+		$Sprite2D/AnimationPlayer.play("dead")
+
 func Die():
 	if dead: return
 	dead = true
+	GD.peaDead = true
 	GD.Player.canMove = false
 	UI.Close()
 	$Camera2D.make_current()
@@ -20,7 +26,6 @@ func Die():
 	var confetti = load("res://Scenes/Confetti.tscn").instantiate()
 	GD.Reparent(confetti, self)
 	confetti.position = Vector2.ZERO
-	prints(confetti.global_position, confetti.get_parent(), confetti.emitting)
 	$Sprite2D/AnimationPlayer.play("dead")
 	var t = create_tween()
 	t.tween_property(self, "scale", Vector2.ONE, .5).from(Vector2(1.5, .8)).set_trans(Tween.TRANS_SINE)

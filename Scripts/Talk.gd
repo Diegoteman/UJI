@@ -5,8 +5,8 @@ extends Area2D
 @export var DefaultTalkSpeed = .05
 var talkSpeed = DefaultTalkSpeed
 @onready var Text: RichTextLabel = get_node("Speech/RichTextLabel")
-var files
-var names
+var files = []
+var names = []
 @onready var T = Timer.new()
 @onready var Arrow = get_node("Speech/Arrow")
 var i = 1
@@ -15,9 +15,10 @@ var talking = false
 
 func _ready():
 	files.append(FileAccess.open(Doc1, FileAccess.READ).get_as_text().replace("\r", "").split("\n"))
-	if Doc2: files.append(FileAccess.open(Doc2, FileAccess.READ).get_as_text().replace("\r", "").split("\n"))
 	names.append(files[0][0].split(", "))
-	if Doc2: names.append(files[1][0].split(", "))
+	if Doc2:
+		files.append(FileAccess.open(Doc2, FileAccess.READ).get_as_text().replace("\r", "").split("\n"))
+		names.append(files[1][0].split(", "))
 	$Speech.scale = Vector2.ZERO
 	$Bocadillo.scale = Vector2.ZERO
 	GD.Reparent(T)
@@ -41,14 +42,19 @@ func Next():
 		i = 1
 		Close()
 		UI.Open()
+		GD.Player.canMove = true
 		Text.text = ""
 		if Doc2: k = 1
 		return
 	if i == 1:
 		Open()
 		UI.Close()
+		GD.Player.canMove = false
 	var msg = files[k][i]
-	if int(msg[0]) == 0:
+	if names[k].size() == 1:
+		Arrow.position.x = 90
+		Arrow.rotation_degrees = 180
+	elif int(msg[0]) == 0:
 		Arrow.position.x = 57
 		Arrow.rotation_degrees = -144.7
 	else:

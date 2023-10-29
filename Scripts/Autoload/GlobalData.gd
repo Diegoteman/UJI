@@ -5,6 +5,10 @@ var Root
 var Player
 var FirstTime = false
 
+var freddyDead = false
+var peaDead = false
+var femboyDead = false
+
 func _ready(): FindRoot()
 func FindRoot(): Root = get_node("/root").get_child(get_node("/root").get_child_count()-1)
 

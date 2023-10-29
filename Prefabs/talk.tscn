@@ -9,7 +9,7 @@
 size = Vector2(86, 86)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjp46"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.105882, 0.0156863, 0.14902, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -44,9 +44,9 @@ theme_override_fonts/normal_font = ExtResource("2_2pruw")
 bbcode_enabled = true
 
 [node name="Arrow" type="Sprite2D" parent="Speech"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(130, 96)
-rotation = -3.66868
+modulate = Color(0.105882, 0.0156863, 0.14902, 1)
+position = Vector2(90, 99)
+rotation = 3.14159
 scale = Vector2(0.0218821, 0.0218821)
 texture = ExtResource("3_2i8m6")
 

@@ -42,9 +42,10 @@ func Haunt():
 			modulate.a = .63
 			$Sprite2D/AnimationPlayer.play("Idle")
 			GD.Reparent(obj)
-			await get_tree().process_frame
-			obj.position = position - objOffset * sign(velocity.x)
 			collision_layer = 1 ; collision_mask = 1
+			await get_tree().process_frame
+			if !obj: return
+			obj.position = position - objOffset * sign(velocity.x)
 	
 	if talk != null:
 		talk.Next()
@@ -63,7 +64,7 @@ func _on_area_exited(area):
 	if area.is_in_group("Object") && !objGrabbed && obj:
 		obj.Prompt(true)
 		obj = null
-	elif area.is_in_group("Talk"):
+	elif area.is_in_group("Talk") && talk:
 		talk.Prompt(true)
 		talk = null
 

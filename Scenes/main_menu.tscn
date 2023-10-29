@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://8jtwyqt32b2j"]
+[gd_scene load_steps=10 format=3 uid="uid://8jtwyqt32b2j"]
 
 [ext_resource type="Texture2D" uid="uid://usdv7rs20v4m" path="res://Sprites/Menu/mainscreen.png" id="1_bqmud"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="2_g5clh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c2huowqd7eica" path="res://Sprites/Menu/help.png" id="5_cogvk"]
 [ext_resource type="Texture2D" uid="uid://dgoy86ol2uhmv" path="res://Sprites/Menu/xsalir.png" id="6_2ulku"]
 [ext_resource type="Texture2D" uid="uid://cpo72ems4e55x" path="res://Sprites/Menu/xdull.png" id="7_cot3r"]
+[ext_resource type="Texture2D" uid="uid://3xqm6kmoy11f" path="res://Sprites/Menu/title.png" id="9_gkgly"]
 
 [node name="MainMenu" type="TextureRect"]
 texture_filter = 1
@@ -17,29 +18,34 @@ script = ExtResource("2_g5clh")
 
 [node name="Start" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 118.833
-offset_top = 26.4999
-offset_right = 196.833
-offset_bottom = 56.4999
+offset_left = 117.333
+offset_top = 42.6665
+offset_right = 195.333
+offset_bottom = 72.6665
 texture_normal = ExtResource("3_nb3aj")
 texture_hover = ExtResource("4_cd8ka")
 
 [node name="Help" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 106.5
-offset_top = 46.8332
-offset_right = 167.5
-offset_bottom = 85.8332
+offset_left = 100.333
+offset_top = 61.6665
+offset_right = 161.333
+offset_bottom = 100.666
 texture_normal = ExtResource("5_7btfc")
 texture_hover = ExtResource("5_cogvk")
 
 [node name="Quit" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 173.0
-offset_right = 192.0
-offset_bottom = 18.0
+offset_left = 0.166687
+offset_top = 0.166666
+offset_right = 19.1667
+offset_bottom = 19.1667
 texture_normal = ExtResource("7_cot3r")
 texture_hover = ExtResource("6_2ulku")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(96.1663, 54.1665)
+texture = ExtResource("9_gkgly")
 
 [connection signal="button_down" from="Start" to="." method="_on_start_button_down"]
 [connection signal="button_down" from="Help" to="." method="_on_help_button_down"]

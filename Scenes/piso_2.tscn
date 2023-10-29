@@ -1,28 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://bu4fh8df7xs60"]
+[gd_scene load_steps=16 format=3 uid="uid://bu4fh8df7xs60"]
 
 [ext_resource type="Texture2D" uid="uid://d2w5g44hjpyyp" path="res://Sprites/Scenes/piso2suelo.png" id="1_ir84l"]
 [ext_resource type="Texture2D" uid="uid://cot774i8m2x0d" path="res://Sprites/Scenes/piso2pared.png" id="2_n28he"]
 [ext_resource type="PackedScene" uid="uid://ctwhvbf28rcw1" path="res://Prefabs/ghost.tscn" id="3_pxit1"]
+[ext_resource type="Script" path="res://Scenes/Femboy.gd" id="4_48e0d"]
 [ext_resource type="Texture2D" uid="uid://dg85kaexb6lr" path="res://Sprites/Characters.png" id="4_nu1h8"]
 [ext_resource type="PackedScene" uid="uid://hj1w8djfrm2t" path="res://Prefabs/trigger.tscn" id="5_q62hn"]
-
-[sub_resource type="Animation" id="Animation_ymh23"]
-resource_name = "zorra"
-length = 0.8
-loop_mode = 1
-step = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
+[ext_resource type="PackedScene" uid="uid://ce6g5i8u6jw6g" path="res://Prefabs/Objects/terrarium.tscn" id="6_nhdbh"]
 
 [sub_resource type="Animation" id="Animation_v125q"]
 length = 0.001
@@ -37,24 +21,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_eigkd"]
-resource_name = "coneja"
-length = 0.8
-loop_mode = 1
-step = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [9, 14]
 }
 
 [sub_resource type="Animation" id="Animation_y5lu6"]
@@ -75,6 +41,42 @@ tracks/0/keys = {
 "values": [20, 19]
 }
 
+[sub_resource type="Animation" id="Animation_eigkd"]
+resource_name = "coneja"
+length = 0.8
+loop_mode = 1
+step = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [9, 14]
+}
+
+[sub_resource type="Animation" id="Animation_ymh23"]
+resource_name = "zorra"
+length = 0.8
+loop_mode = 1
+step = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_arn8f"]
 _data = {
 "RESET": SubResource("Animation_v125q"),
@@ -82,6 +84,9 @@ _data = {
 "coneja": SubResource("Animation_eigkd"),
 "zorra": SubResource("Animation_ymh23")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwuhx"]
+size = Vector2(109, 105)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vm0p7"]
 size = Vector2(200, 1026)
@@ -110,21 +115,32 @@ limit_top = -500
 limit_right = 600
 limit_bottom = 500
 
-[node name="NPC" type="Area2D" parent="."]
+[node name="Femboy" type="Area2D" parent="." groups=["Femboy"]]
 position = Vector2(266, 227)
+script = ExtResource("4_48e0d")
 
-[node name="NPC" type="Sprite2D" parent="NPC"]
+[node name="Sprite2D" type="Sprite2D" parent="Femboy"]
 texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("4_nu1h8")
 hframes = 5
 vframes = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="NPC/NPC"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Femboy/Sprite2D"]
 autoplay = "zorra"
 libraries = {
 "": SubResource("AnimationLibrary_arn8f")
 }
+
+[node name="Camera2D" type="Camera2D" parent="Femboy"]
+zoom = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Femboy"]
+position = Vector2(1.5, 5.5)
+shape = SubResource("RectangleShape2D_bwuhx")
+
+[node name="Timer" type="Timer" parent="Femboy"]
+one_shot = true
 
 [node name="NPC3" type="Area2D" parent="."]
 position = Vector2(274, -189)
@@ -189,5 +205,8 @@ shape = SubResource("RectangleShape2D_gsq85")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(23, -450)
 shape = SubResource("RectangleShape2D_gsq85")
+
+[node name="Terrarium" parent="." instance=ExtResource("6_nhdbh")]
+position = Vector2(237, 47)
 
 [editable path="CharacterBody2D"]

@@ -1,0 +1,112 @@
+[gd_scene load_steps=12 format=3 uid="uid://ce6g5i8u6jw6g"]
+
+[ext_resource type="Script" path="res://Prefabs/Objects/!object.gd" id="1_exii2"]
+[ext_resource type="Script" path="res://Prefabs/Objects/Terrarium.gd" id="2_n0k24"]
+[ext_resource type="Texture2D" uid="uid://cwlg7qy63bhrt" path="res://Sprites/terrario.png" id="2_ueymp"]
+[ext_resource type="Texture2D" uid="uid://dobwyscce7xvo" path="res://Sprites/terrario_roto.png" id="4_3hljg"]
+[ext_resource type="Texture2D" uid="uid://c0xokx2jm3tkp" path="res://Sprites/tarantula_sheet.png" id="5_o4awn"]
+[ext_resource type="PackedScene" uid="uid://clposuh728ip2" path="res://Scenes/glass.tscn" id="6_s2lik"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wl3q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5oyva"]
+
+[sub_resource type="Animation" id="Animation_aw08f"]
+resource_name = "skibidi"
+length = 0.2
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1]
+}
+
+[sub_resource type="Animation" id="Animation_fkisl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8w70x"]
+_data = {
+"RESET": SubResource("Animation_fkisl"),
+"skibidi": SubResource("Animation_aw08f")
+}
+
+[node name="Terrarium" type="Area2D" groups=["Object"]]
+script = ExtResource("1_exii2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3wl3q")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -36.0
+offset_right = 25.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(25, 26)
+text = "[Grab]"
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_n0k24")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_5oyva")
+disabled = true
+
+[node name="Terrarium" type="Sprite2D" parent="Area2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_ueymp")
+
+[node name="Broken" type="Sprite2D" parent="Area2D"]
+visible = false
+texture_filter = 1
+position = Vector2(1, 5)
+scale = Vector2(2, 2)
+texture = ExtResource("4_3hljg")
+
+[node name="Spider" type="Sprite2D" parent="Area2D"]
+visible = false
+texture_filter = 1
+position = Vector2(1, 5)
+scale = Vector2(2, 2)
+texture = ExtResource("5_o4awn")
+hframes = 2
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D/Spider"]
+libraries = {
+"": SubResource("AnimationLibrary_8w70x")
+}
+
+[node name="Timer" type="Timer" parent="Area2D"]
+wait_time = 1.5
+
+[node name="Glass" parent="Area2D" instance=ExtResource("6_s2lik")]
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_terrarium_area_entered"]

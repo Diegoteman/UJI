@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c4h5ykg54qv2k"]
+[gd_scene load_steps=27 format=3 uid="uid://c4h5ykg54qv2k"]
 
 [ext_resource type="Texture2D" uid="uid://bmu7sf6sd13be" path="res://Sprites/Scenes/jardin.png" id="1_oq1qp"]
 [ext_resource type="Texture2D" uid="uid://sewu18ee2ww6" path="res://Sprites/tritonman2.png" id="2_1efc0"]
@@ -8,24 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ctwhvbf28rcw1" path="res://Prefabs/ghost.tscn" id="6_6ne6t"]
 [ext_resource type="Texture2D" uid="uid://bbc0fkmlvvq15" path="res://Sprites/spritesheet__Peashooter.png" id="6_vqnc0"]
 [ext_resource type="PackedScene" uid="uid://crxrsqqlrjrkb" path="res://Prefabs/Objects/Gun.tscn" id="8_6pq18"]
-
-[sub_resource type="Animation" id="Animation_fvvc3"]
-resource_name = "bob"
-length = 4.0
-loop_mode = 1
-step = 1.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3),
-"transitions": PackedFloat32Array(0.329877, 3.03143, 0.241484, 3.24901),
-"update": 0,
-"values": [Vector2(1, 10), Vector2(1, 6), Vector2(1, 10), Vector2(1, 14)]
-}
+[ext_resource type="PackedScene" uid="uid://ckrohao10bhkr" path="res://Prefabs/talk.tscn" id="9_hc4xi"]
 
 [sub_resource type="Animation" id="Animation_tpk3n"]
 length = 0.001
@@ -52,6 +35,24 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [15]
+}
+
+[sub_resource type="Animation" id="Animation_fvvc3"]
+resource_name = "bob"
+length = 4.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(0.329877, 3.03143, 0.241484, 3.24901),
+"update": 0,
+"values": [Vector2(1, 10), Vector2(1, 6), Vector2(1, 10), Vector2(1, 14)]
 }
 
 [sub_resource type="Animation" id="Animation_256ra"]
@@ -129,22 +130,6 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_cah5t"]
-resource_name = "off"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-
 [sub_resource type="Animation" id="Animation_gxo0u"]
 resource_name = "dead"
 length = 0.1
@@ -159,6 +144,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_cah5t"]
+resource_name = "off"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1kshq"]
@@ -300,11 +301,13 @@ position = Vector2(-232.5, -121)
 shape = SubResource("RectangleShape2D_16els")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(239, 104, 238, 352, 374, 350, 372, -249, -429, -256, -435, 102, -519, 104, -512, -407, 471, -390, 463, 416, -516, 391, -519, 110, -431, 104)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -323,5 +326,8 @@ shape = SubResource("RectangleShape2D_ejw1g")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(23, -430)
 shape = SubResource("RectangleShape2D_ejw1g")
+
+[node name="Talk" parent="." instance=ExtResource("9_hc4xi")]
+position = Vector2(-189, -133)
 
 [editable path="CharacterBody2D"]

@@ -6,9 +6,9 @@ var charged = false
 func _physics_process(delta):
 	$CollisionShape2D.disabled = Obj.pickedUp
 	if Obj.pickedUp:
-		scale.x = sign(GD.Player.velocity.x)
+		var dir = sign(GD.Player.velocity.x)
+		if dir != 0 :scale.x = dir
 		position = Vector2(30 * scale.x, 0)
-	else: position = Vector2.ZERO
 
 func _input(event):
 	if Obj.pickedUp && charged && Input.is_action_just_pressed("Haunt"):
