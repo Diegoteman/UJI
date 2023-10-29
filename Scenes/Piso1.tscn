@@ -1,14 +1,23 @@
-[gd_scene load_steps=19 format=3 uid="uid://un184ixo8gtv"]
+[gd_scene load_steps=28 format=3 uid="uid://un184ixo8gtv"]
 
 [ext_resource type="Texture2D" uid="uid://clgvnxp5tk3tv" path="res://Sprites/Scenes/piso1pared.png" id="1_6ytaq"]
 [ext_resource type="Texture2D" uid="uid://o7r2dit3tqcg" path="res://Sprites/Scenes/piso1suelo.png" id="2_ij7vn"]
 [ext_resource type="PackedScene" uid="uid://ctwhvbf28rcw1" path="res://Prefabs/ghost.tscn" id="3_6x8ma"]
+[ext_resource type="Texture2D" uid="uid://sjrof3wiyg5q" path="res://Sprites/Furniture/P1/banners.png" id="3_x8n1x"]
+[ext_resource type="Texture2D" uid="uid://58j6ti5ayb8i" path="res://Sprites/Furniture/P1/bañoback.png" id="4_cop1q"]
 [ext_resource type="Script" path="res://Scenes/Intro.gd" id="4_vnccn"]
 [ext_resource type="FontFile" uid="uid://cgu1vln16lc0q" path="res://Sprites/RetGanon.ttf" id="5_1kayc"]
 [ext_resource type="PackedScene" uid="uid://ckrohao10bhkr" path="res://Prefabs/talk.tscn" id="5_4sbx7"]
+[ext_resource type="Texture2D" uid="uid://dth54ufsm3l6y" path="res://Sprites/Furniture/P1/bañofront.png" id="5_vcwto"]
+[ext_resource type="Texture2D" uid="uid://cdeh2kogsb876" path="res://Sprites/Furniture/P1/kitchen.png" id="6_b3c75"]
 [ext_resource type="PackedScene" uid="uid://car4vti5eua3i" path="res://Prefabs/NPCs/Freddy.tscn" id="6_vo86m"]
+[ext_resource type="Texture2D" uid="uid://1t2mktun5kx2" path="res://Sprites/Furniture/P1/plants.png" id="7_apswo"]
 [ext_resource type="Texture2D" uid="uid://dg85kaexb6lr" path="res://Sprites/Characters.png" id="7_ii7t5"]
+[ext_resource type="Texture2D" uid="uid://e1rfxlt5n8j2" path="res://Sprites/Furniture/P1/puertajardin.png" id="8_op01q"]
 [ext_resource type="PackedScene" uid="uid://hj1w8djfrm2t" path="res://Prefabs/trigger.tscn" id="9_1mweq"]
+[ext_resource type="Texture2D" uid="uid://bmxiflos2sug" path="res://Sprites/Furniture/P1/sofatele.png" id="9_q6wrl"]
+[ext_resource type="Texture2D" uid="uid://hootchkggs58" path="res://Sprites/Furniture/P1/windows.png" id="10_cgof5"]
+[ext_resource type="Texture2D" uid="uid://drvakwqwkjjui" path="res://Sprites/Furniture/P1/mesas.png" id="11_s61vh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4gdr"]
 size = Vector2(200, 1026)
@@ -118,6 +127,56 @@ limit_top = -450
 limit_right = 550
 limit_bottom = 400
 
+[node name="Freddy" parent="." groups=["Scared"] instance=ExtResource("6_vo86m")]
+position = Vector2(-342, -199)
+
+[node name="Furniture" type="Node2D" parent="."]
+
+[node name="Banners" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("3_x8n1x")
+
+[node name="Bañoback" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("4_cop1q")
+
+[node name="Bañofront" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("5_vcwto")
+
+[node name="Kitchen" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("6_b3c75")
+
+[node name="Plants" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("7_apswo")
+
+[node name="Puertajardin" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("8_op01q")
+
+[node name="Sofatele" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("9_q6wrl")
+
+[node name="Windows" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("10_cgof5")
+
+[node name="Mesas" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("11_s61vh")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 visible = false
 
@@ -183,9 +242,6 @@ visible_ratio = 0.0
 
 [node name="Timer" type="Timer" parent="ColorRect"]
 wait_time = 0.07
-
-[node name="Freddy" parent="." groups=["Scared"] instance=ExtResource("6_vo86m")]
-position = Vector2(-342, -199)
 
 [node name="Kurnger" type="Area2D" parent="."]
 position = Vector2(-251, -200)

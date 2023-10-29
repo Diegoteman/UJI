@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwo1mdeo3gvxu"]
+
+[ext_resource type="Texture2D" uid="uid://bweteoni47k7g" path="res://Sprites/Scenes/sotanoref.png" id="1_hiadv"]
+[ext_resource type="PackedScene" uid="uid://ctwhvbf28rcw1" path="res://Prefabs/ghost.tscn" id="2_u4ons"]
+[ext_resource type="Texture2D" uid="uid://cjdmdpnygxpbw" path="res://Sprites/Light.png" id="3_bocye"]
+
+[node name="Sotano" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -494.0
+offset_top = -567.0
+offset_right = 1438.0
+offset_bottom = 967.0
+color = Color(0.332031, 0.257813, 0.4375, 1)
+
+[node name="Sotanoref" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(465, 166)
+scale = Vector2(2, 2)
+texture = ExtResource("1_hiadv")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.545098, 0.529412, 0.631373, 1)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_u4ons")]
+position = Vector2(632, 20)
+
+[node name="PointLight2D2" type="PointLight2D" parent="CharacterBody2D"]
+energy = 0.5
+texture = ExtResource("3_bocye")
+texture_scale = 0.7

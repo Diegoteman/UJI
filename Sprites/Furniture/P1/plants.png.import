@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b40dsyf7yj8kv"
-path="res://.godot/imported/puff.png-28cf3a9b919413c4f1f916087d113af2.ctex"
+uid="uid://1t2mktun5kx2"
+path="res://.godot/imported/plants.png-047c5d269a3209b22b62eb9b1af86012.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Furniture/puff.png"
-dest_files=["res://.godot/imported/puff.png-28cf3a9b919413c4f1f916087d113af2.ctex"]
+source_file="res://Sprites/Furniture/P1/plants.png"
+dest_files=["res://.godot/imported/plants.png-047c5d269a3209b22b62eb9b1af86012.ctex"]
 
 [params]
 

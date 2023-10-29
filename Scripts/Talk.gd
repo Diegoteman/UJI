@@ -68,7 +68,7 @@ func Talk(person: String, msg: String):
 	talking = true
 	Text.text = person + ": " + msg
 	T.start()
-	for j in range(person.length()+2, msg.length()+person.length()+2):
+	for j in range(person.length()+2, msg.length()+person.length()+3):
 		T.wait_time = talkSpeed
 		Text.visible_characters = j
 		await T.timeout

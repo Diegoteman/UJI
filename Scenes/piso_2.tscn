@@ -1,13 +1,111 @@
-[gd_scene load_steps=17 format=3 uid="uid://bu4fh8df7xs60"]
+[gd_scene load_steps=45 format=3 uid="uid://bu4fh8df7xs60"]
 
 [ext_resource type="Texture2D" uid="uid://ddagqq75o4obi" path="res://Sprites/Scenes/piso2suelo.png" id="1_ir84l"]
 [ext_resource type="Texture2D" uid="uid://cot774i8m2x0d" path="res://Sprites/Scenes/piso2pared.png" id="2_n28he"]
 [ext_resource type="PackedScene" uid="uid://ctwhvbf28rcw1" path="res://Prefabs/ghost.tscn" id="3_pxit1"]
+[ext_resource type="Texture2D" uid="uid://lgomu6mmkgbo" path="res://Sprites/Furniture/P2/bdsmcross.png" id="3_s67ys"]
 [ext_resource type="Script" path="res://Scenes/Femboy.gd" id="4_48e0d"]
+[ext_resource type="Texture2D" uid="uid://cqsex86k0ihyj" path="res://Sprites/Furniture/P2/bed_doll.png" id="4_ibrvo"]
 [ext_resource type="Texture2D" uid="uid://dg85kaexb6lr" path="res://Sprites/Characters.png" id="4_nu1h8"]
 [ext_resource type="PackedScene" uid="uid://hj1w8djfrm2t" path="res://Prefabs/trigger.tscn" id="5_q62hn"]
-[ext_resource type="PackedScene" uid="uid://ckrohao10bhkr" path="res://Prefabs/talk.tscn" id="6_bwwle"]
+[ext_resource type="Texture2D" uid="uid://b40dsyf7yj8kv" path="res://Sprites/Furniture/P2/puff.png" id="5_xdmga"]
+[ext_resource type="Texture2D" uid="uid://c8hadk45a6sbw" path="res://Sprites/Furniture/P2/table.png" id="6_gchye"]
 [ext_resource type="PackedScene" uid="uid://ce6g5i8u6jw6g" path="res://Prefabs/Objects/terrarium.tscn" id="6_nhdbh"]
+[ext_resource type="Texture2D" uid="uid://cis1iuopwmhik" path="res://Sprites/Furniture/P2/shelf.png" id="7_m0dum"]
+[ext_resource type="Texture2D" uid="uid://bdqmgwem81mhg" path="res://Sprites/Furniture/P2/posters2.png" id="8_mtu32"]
+[ext_resource type="Texture2D" uid="uid://c7uqnomertbpp" path="res://Sprites/Furniture/P2/poster1.png" id="9_drp0u"]
+[ext_resource type="Texture2D" uid="uid://dw4bd6jina1gf" path="res://Sprites/Furniture/P2/masks.png" id="10_8y4r2"]
+[ext_resource type="Texture2D" uid="uid://cvebovlmrg7t3" path="res://Sprites/Furniture/P2/dakimakura.png" id="11_nmtbo"]
+[ext_resource type="Texture2D" uid="uid://ccbwpyu4u03f2" path="res://Sprites/Furniture/P2/cauldron.png" id="12_1tu5x"]
+[ext_resource type="Texture2D" uid="uid://bebwti3kmlg1s" path="res://Sprites/Furniture/P2/broom.png" id="13_tsp1g"]
+[ext_resource type="Texture2D" uid="uid://0hjrqih44v5m" path="res://Sprites/Furniture/P2/bed.png" id="14_vmcbn"]
+[ext_resource type="Texture2D" uid="uid://b0oneihphfskd" path="res://Sprites/Furniture/P2/luces.png" id="15_gkokq"]
+[ext_resource type="Texture2D" uid="uid://clx0ebvw5g2ge" path="res://Sprites/Furniture/P2/heartpillow.png" id="16_wkf3w"]
+[ext_resource type="Texture2D" uid="uid://bku2sipy1mf3y" path="res://Sprites/Furniture/P2/bedcorner.png" id="17_jno2f"]
+[ext_resource type="Texture2D" uid="uid://lr4p55gmrkac" path="res://Sprites/Furniture/P2/pinkpuff.png" id="18_j2ljd"]
+[ext_resource type="Texture2D" uid="uid://bwxxfwmolltb2" path="res://Sprites/Furniture/P2/mirror.png" id="19_wixps"]
+[ext_resource type="Texture2D" uid="uid://bho6sqdrxpatn" path="res://Sprites/Furniture/P2/switch2.png" id="20_7nty8"]
+[ext_resource type="Texture2D" uid="uid://cd3qqj6d3fpso" path="res://Sprites/Furniture/P2/posters3.png" id="21_73f5m"]
+[ext_resource type="Texture2D" uid="uid://6khr8dh5ry2v" path="res://Sprites/Furniture/P2/light.png" id="22_niwxi"]
+[ext_resource type="Texture2D" uid="uid://cmbqkr6i6pfrl" path="res://Sprites/Furniture/P2/cabinet.png" id="23_t4qo1"]
+[ext_resource type="Texture2D" uid="uid://qaih4dnunh67" path="res://Sprites/Furniture/P2/toilet.png" id="24_dy2bk"]
+[ext_resource type="Texture2D" uid="uid://cud716cqf7omi" path="res://Sprites/Furniture/P2/switch1.png" id="25_dtj0d"]
+
+[sub_resource type="Animation" id="Animation_xdqip"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_afnor"]
+resource_name = "bubble"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mvvck"]
+_data = {
+"RESET": SubResource("Animation_xdqip"),
+"bubble": SubResource("Animation_afnor")
+}
+
+[sub_resource type="Animation" id="Animation_1do4c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_gml1v"]
+resource_name = "fuck"
+length = 0.2
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ecee1"]
+_data = {
+"RESET": SubResource("Animation_1do4c"),
+"fuck": SubResource("Animation_gml1v")
+}
 
 [sub_resource type="Animation" id="Animation_v125q"]
 length = 0.001
@@ -107,6 +205,160 @@ texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("2_n28he")
 
+[node name="Furniture" type="Node2D" parent="."]
+
+[node name="Bdsmcross" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(-376, -306)
+scale = Vector2(2, 2)
+texture = ExtResource("3_s67ys")
+
+[node name="BedDoll" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(-248, -234)
+scale = Vector2(2, 2)
+texture = ExtResource("4_ibrvo")
+
+[node name="Puff" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(-368, -128)
+scale = Vector2(2, 2)
+texture = ExtResource("5_xdmga")
+
+[node name="Table" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(88, -104)
+scale = Vector2(2, 2)
+texture = ExtResource("6_gchye")
+
+[node name="Shelf" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(171, -293)
+scale = Vector2(2, 2)
+texture = ExtResource("7_m0dum")
+
+[node name="Posters2" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(106, -304)
+scale = Vector2(2, 2)
+texture = ExtResource("8_mtu32")
+
+[node name="Poster1" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(-86, -306)
+scale = Vector2(2, 2)
+texture = ExtResource("9_drp0u")
+
+[node name="Masks" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(251, -314)
+scale = Vector2(2, 2)
+texture = ExtResource("10_8y4r2")
+
+[node name="Dakimakura" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(-93, -185)
+scale = Vector2(2, 2)
+texture = ExtResource("11_nmtbo")
+
+[node name="Cauldron" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(280, -210)
+scale = Vector2(2, 2)
+texture = ExtResource("12_1tu5x")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Furniture/Cauldron"]
+autoplay = "bubble"
+libraries = {
+"": SubResource("AnimationLibrary_mvvck")
+}
+
+[node name="Broom" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(340, -300)
+scale = Vector2(2, 2)
+texture = ExtResource("13_tsp1g")
+
+[node name="Bed" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(16, -238)
+scale = Vector2(2, 2)
+texture = ExtResource("14_vmcbn")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Furniture/Bed"]
+autoplay = "fuck"
+libraries = {
+"": SubResource("AnimationLibrary_ecee1")
+}
+
+[node name="Luces" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(13, -321)
+scale = Vector2(2, 2)
+texture = ExtResource("15_gkokq")
+
+[node name="Heartpillow" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(101, -173)
+scale = Vector2(2, 2)
+texture = ExtResource("16_wkf3w")
+
+[node name="Bedcorner" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(190, 276)
+scale = Vector2(2, 2)
+texture = ExtResource("17_jno2f")
+
+[node name="Pinkpuff" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(342, 225)
+scale = Vector2(2, 2)
+texture = ExtResource("18_j2ljd")
+
+[node name="Mirror" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(175, 162)
+scale = Vector2(2, 2)
+texture = ExtResource("19_wixps")
+
+[node name="Switch2" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(221, 143)
+scale = Vector2(2, 2)
+texture = ExtResource("20_7nty8")
+
+[node name="Posters3" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(345, 140)
+scale = Vector2(2, 2)
+texture = ExtResource("21_73f5m")
+
+[node name="Light" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(-174, 120)
+scale = Vector2(2, 2)
+texture = ExtResource("22_niwxi")
+
+[node name="Cabinet" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(-13, 157)
+scale = Vector2(2, 2)
+texture = ExtResource("23_t4qo1")
+
+[node name="Toilet" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(-219, 168)
+scale = Vector2(2, 2)
+texture = ExtResource("24_dy2bk")
+
+[node name="Switch1" type="Sprite2D" parent="Furniture"]
+texture_filter = 1
+position = Vector2(-132, 148)
+scale = Vector2(2, 2)
+texture = ExtResource("25_dtj0d")
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_pxit1")]
 position = Vector2(80, 183)
 
@@ -137,21 +389,18 @@ libraries = {
 zoom = Vector2(2, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Femboy"]
+position = Vector2(1.5, 5.5)
 shape = SubResource("RectangleShape2D_bwuhx")
 
 [node name="Timer" type="Timer" parent="Femboy"]
 one_shot = true
-
-[node name="Talk" parent="Femboy" instance=ExtResource("6_bwwle")]
-position = Vector2(1, -23)
-Doc1 = "res://Dialogue/Dialogue_discordkitten_1.txt"
-Doc2 = "res://Dialogue/Dialogue_discordkitten_2.txt"
 
 [node name="NPC3" type="Area2D" parent="."]
 position = Vector2(274, -189)
 
 [node name="NPC" type="Sprite2D" parent="NPC3"]
 texture_filter = 1
+position = Vector2(-87, 37)
 scale = Vector2(2, 2)
 texture = ExtResource("4_nu1h8")
 hframes = 5
@@ -163,16 +412,8 @@ libraries = {
 "": SubResource("AnimationLibrary_arn8f")
 }
 
-[node name="Talk" parent="NPC3" instance=ExtResource("6_bwwle")]
-position = Vector2(0, -25)
-Doc1 = "res://Dialogue/Dialogue_witchgirl_1.txt"
-Doc2 = "res://Dialogue/Dialogue_witchgirl_2.txt"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC3"]
-shape = SubResource("RectangleShape2D_bwuhx")
-
 [node name="NPC2" type="Area2D" parent="."]
-position = Vector2(-308, -188)
+position = Vector2(-162, -136)
 
 [node name="NPC" type="Sprite2D" parent="NPC2"]
 texture_filter = 1
@@ -186,15 +427,6 @@ autoplay = "coneja"
 libraries = {
 "": SubResource("AnimationLibrary_arn8f")
 }
-
-[node name="Talk" parent="NPC2" instance=ExtResource("6_bwwle")]
-position = Vector2(0, -21)
-Doc1 = "res://Dialogue/Dialogue_playboybunny_1.txt"
-Doc2 = "res://Dialogue/Dialogue_playboybunny_2.txt"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC2"]
-position = Vector2(-1, 2)
-shape = SubResource("RectangleShape2D_bwuhx")
 
 [node name="Trigger" parent="." instance=ExtResource("5_q62hn")]
 position = Vector2(81, 260)
@@ -229,6 +461,6 @@ position = Vector2(23, -450)
 shape = SubResource("RectangleShape2D_gsq85")
 
 [node name="Terrarium" parent="." instance=ExtResource("6_nhdbh")]
-position = Vector2(237, 47)
+position = Vector2(167, -301)
 
 [editable path="CharacterBody2D"]

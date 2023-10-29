@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lgomu6mmkgbo"
-path="res://.godot/imported/bdsmcross.png-a143325271fa8c8a6770391da3e138fa.ctex"
+uid="uid://lr4p55gmrkac"
+path="res://.godot/imported/pinkpuff.png-74445e24615962b26642139a2b7737cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Furniture/bdsmcross.png"
-dest_files=["res://.godot/imported/bdsmcross.png-a143325271fa8c8a6770391da3e138fa.ctex"]
+source_file="res://Sprites/Furniture/P2/pinkpuff.png"
+dest_files=["res://.godot/imported/pinkpuff.png-74445e24615962b26642139a2b7737cc.ctex"]
 
 [params]
 

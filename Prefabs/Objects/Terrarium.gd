@@ -13,6 +13,8 @@ func _on_terrarium_area_entered(area):
 	if area.is_in_group("Femboy"): Break(area)
 
 func Break(femboy):
+	$CollisionShape2D
+	$"../CollisionShape2D"
 	UI.Close()
 	GD.Player.canMove = false
 	femboy.get_node("Camera2D").make_current()

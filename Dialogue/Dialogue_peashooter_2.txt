@@ -1,2 +1,4 @@
 Peashooter
-0 The old man at the pool was splashing me with water. I've moved here so that the joint doesn't go out.
+0 That old man at the pool was splashing me with water.
+0 What a nuisance.
+0 I had to move here so that he doesn't put out my joint.

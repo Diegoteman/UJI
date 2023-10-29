@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqsex86k0ihyj"
-path="res://.godot/imported/bed_doll.png-dd80584e22d2c9847e2048cf38049198.ctex"
+uid="uid://cvebovlmrg7t3"
+path="res://.godot/imported/dakimakura.png-18e2b57969e765f4033cba3594353b7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Furniture/bed_doll.png"
-dest_files=["res://.godot/imported/bed_doll.png-dd80584e22d2c9847e2048cf38049198.ctex"]
+source_file="res://Sprites/Furniture/P2/dakimakura.png"
+dest_files=["res://.godot/imported/dakimakura.png-18e2b57969e765f4033cba3594353b7b.ctex"]
 
 [params]
 
