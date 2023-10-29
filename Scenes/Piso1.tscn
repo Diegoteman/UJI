@@ -91,10 +91,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhomu"]
-size = Vector2(32, 86)
+size = Vector2(41, 86)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1nlf"]
-size = Vector2(32, 86)
+size = Vector2(46, 86)
 
 [node name="Node2D" type="Node2D"]
 
@@ -248,22 +248,23 @@ Position = Vector2(80, 180)
 
 [node name="Talk" parent="." instance=ExtResource("5_4sbx7")]
 position = Vector2(-293, -212)
-Doc1 = "res://Dialogue/Carmen, Josemi.txt"
+Doc1 = "res://Dialogue/Conversation_freddy_1.txt"
+Doc2 = "res://Dialogue/Conversation_freddy_2.txt"
 
 [node name="Talk2" parent="." instance=ExtResource("5_4sbx7")]
 position = Vector2(-79, -82)
-Doc1 = "res://Dialogue/Carmen, Josemi.txt"
+Doc1 = "res://Dialogue/Dialogue_notpaco.txt"
 
 [node name="CollisionShape2D" parent="Talk2" index="0"]
-position = Vector2(-3, 6)
+position = Vector2(-7.5, 6)
 shape = SubResource("RectangleShape2D_lhomu")
 
 [node name="Talk3" parent="." instance=ExtResource("5_4sbx7")]
 position = Vector2(-30, -78)
-Doc1 = "res://Dialogue/Carmen, Josemi.txt"
+Doc1 = "res://Dialogue/Dialogue_paco.txt"
 
 [node name="CollisionShape2D" parent="Talk3" index="0"]
-position = Vector2(0, 2)
+position = Vector2(7, 2)
 shape = SubResource("RectangleShape2D_e1nlf")
 
 [editable path="CharacterBody2D"]

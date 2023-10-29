@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c4h5ykg54qv2k"]
+[gd_scene load_steps=28 format=3 uid="uid://c4h5ykg54qv2k"]
 
 [ext_resource type="Texture2D" uid="uid://bmu7sf6sd13be" path="res://Sprites/Scenes/jardin.png" id="1_oq1qp"]
 [ext_resource type="Texture2D" uid="uid://sewu18ee2ww6" path="res://Sprites/tritonman2.png" id="2_1efc0"]
@@ -96,6 +96,9 @@ _data = {
 "pea": SubResource("Animation_256ra"),
 "percebe": SubResource("Animation_0ie5a")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwgyp"]
+size = Vector2(109, 105)
 
 [sub_resource type="Animation" id="Animation_og1bq"]
 resource_name = "Pea"
@@ -238,6 +241,14 @@ modulate = Color(0.286275, 0.52549, 0.666667, 0.733333)
 position = Vector2(0, 15.0002)
 texture = ExtResource("3_bqang")
 
+[node name="Talk" parent="NPC" instance=ExtResource("9_hc4xi")]
+position = Vector2(3, -17)
+Doc1 = "res://Dialogue/Dialogue_mermaidman_1.txt"
+Doc2 = "res://Dialogue/Dialogue_mermaidman_2.txt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
+shape = SubResource("RectangleShape2D_fwgyp")
+
 [node name="NPC2" type="Area2D" parent="."]
 position = Vector2(9, -183)
 
@@ -255,6 +266,14 @@ autoplay = "percebe"
 libraries = {
 "": SubResource("AnimationLibrary_qa7uo")
 }
+
+[node name="Talk" parent="NPC2" instance=ExtResource("9_hc4xi")]
+position = Vector2(3, -18)
+Doc1 = "res://Dialogue/Dialogue_barnacleboy_1.txt"
+Doc2 = "res://Dialogue/Dialogue_barnacleboy_2.txt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC2"]
+shape = SubResource("RectangleShape2D_fwgyp")
 
 [node name="Pea" type="Area2D" parent="." groups=["Scared"]]
 position = Vector2(297, -118)
@@ -291,6 +310,15 @@ amount = 16
 process_material = SubResource("ParticleProcessMaterial_ntu7f")
 lifetime = 1.2
 
+[node name="Talk" parent="Pea" instance=ExtResource("9_hc4xi")]
+position = Vector2(8, -19)
+Doc1 = "res://Dialogue/Dialogue_peashooter_1.txt"
+Doc2 = "res://Dialogue/Dialogue_peashooter_2.txt"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pea"]
+position = Vector2(8, -3)
+shape = SubResource("RectangleShape2D_fwgyp")
+
 [node name="Object" parent="." instance=ExtResource("8_6pq18")]
 position = Vector2(-371, -230)
 
@@ -326,8 +354,5 @@ shape = SubResource("RectangleShape2D_ejw1g")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(23, -430)
 shape = SubResource("RectangleShape2D_ejw1g")
-
-[node name="Talk" parent="." instance=ExtResource("9_hc4xi")]
-position = Vector2(-189, -133)
 
 [editable path="CharacterBody2D"]
