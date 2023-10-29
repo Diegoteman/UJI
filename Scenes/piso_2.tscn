@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bu4fh8df7xs60"]
+[gd_scene load_steps=46 format=3 uid="uid://bu4fh8df7xs60"]
 
 [ext_resource type="Texture2D" uid="uid://ddagqq75o4obi" path="res://Sprites/Scenes/piso2suelo.png" id="1_ir84l"]
 [ext_resource type="Texture2D" uid="uid://cot774i8m2x0d" path="res://Sprites/Scenes/piso2pared.png" id="2_n28he"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://cmbqkr6i6pfrl" path="res://Sprites/Furniture/P2/cabinet.png" id="23_t4qo1"]
 [ext_resource type="Texture2D" uid="uid://qaih4dnunh67" path="res://Sprites/Furniture/P2/toilet.png" id="24_dy2bk"]
 [ext_resource type="Texture2D" uid="uid://cud716cqf7omi" path="res://Sprites/Furniture/P2/switch1.png" id="25_dtj0d"]
+[ext_resource type="PackedScene" uid="uid://ckrohao10bhkr" path="res://Prefabs/talk.tscn" id="28_bdx75"]
 
 [sub_resource type="Animation" id="Animation_xdqip"]
 length = 0.001
@@ -372,6 +373,11 @@ limit_bottom = 500
 position = Vector2(266, 227)
 script = ExtResource("4_48e0d")
 
+[node name="Talk" parent="Femboy" instance=ExtResource("28_bdx75")]
+position = Vector2(1, -25)
+Doc1 = "res://Dialogue/Dialogue_discordkitten_1.txt"
+Doc2 = "res://Dialogue/Dialogue_discordkitten_2.txt"
+
 [node name="Sprite2D" type="Sprite2D" parent="Femboy"]
 texture_filter = 1
 scale = Vector2(2, 2)
@@ -398,6 +404,12 @@ one_shot = true
 [node name="NPC3" type="Area2D" parent="."]
 position = Vector2(274, -189)
 
+[node name="Talk" parent="NPC3" instance=ExtResource("28_bdx75")]
+top_level = true
+position = Vector2(190, -180)
+Doc1 = "res://Dialogue/Dialogue_witchgirl_1.txt"
+Doc2 = "res://Dialogue/Dialogue_witchgirl_2.txt"
+
 [node name="NPC" type="Sprite2D" parent="NPC3"]
 texture_filter = 1
 position = Vector2(-87, 37)
@@ -412,8 +424,18 @@ libraries = {
 "": SubResource("AnimationLibrary_arn8f")
 }
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC3"]
+position = Vector2(-87, 48)
+shape = SubResource("RectangleShape2D_bwuhx")
+
 [node name="NPC2" type="Area2D" parent="."]
 position = Vector2(-162, -136)
+
+[node name="Talk" parent="NPC2" instance=ExtResource("28_bdx75")]
+top_level = true
+position = Vector2(-161, -160)
+Doc1 = "res://Dialogue/Dialogue_playboybunny_1.txt"
+Doc2 = "res://Dialogue/Dialogue_playboybunny_2.txt"
 
 [node name="NPC" type="Sprite2D" parent="NPC2"]
 texture_filter = 1
@@ -427,6 +449,10 @@ autoplay = "coneja"
 libraries = {
 "": SubResource("AnimationLibrary_arn8f")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC2"]
+position = Vector2(1.5, 5.5)
+shape = SubResource("RectangleShape2D_bwuhx")
 
 [node name="Trigger" parent="." instance=ExtResource("5_q62hn")]
 position = Vector2(81, 260)

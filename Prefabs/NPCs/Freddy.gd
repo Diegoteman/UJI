@@ -2,9 +2,6 @@ extends Area2D
 
 var dead = false
 
-func _ready():
-	if GD.freddyDead: Trigger()
-
 func Die():
 	if dead: return
 	dead = true
