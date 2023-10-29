@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://cwo1mdeo3gvxu"]
+[gd_scene load_steps=21 format=3 uid="uid://cwo1mdeo3gvxu"]
 
 [ext_resource type="Texture2D" uid="uid://bweteoni47k7g" path="res://Sprites/Scenes/sotanoref.png" id="1_hiadv"]
 [ext_resource type="PackedScene" uid="uid://ctwhvbf28rcw1" path="res://Prefabs/ghost.tscn" id="2_u4ons"]
 [ext_resource type="Texture2D" uid="uid://cjdmdpnygxpbw" path="res://Sprites/Light.png" id="3_bocye"]
+[ext_resource type="PackedScene" uid="uid://e42xyr3o4oi2" path="res://Prefabs/music_player.tscn" id="4_cmpd1"]
 [ext_resource type="Script" path="res://Scenes/Body.gd" id="4_vh4ao"]
 [ext_resource type="Texture2D" uid="uid://c3rdvn1cn0wur" path="res://Sprites/possessed_sheet.png" id="5_it18k"]
 [ext_resource type="Script" path="res://Scenes/nun.gd" id="6_rfhb6"]
@@ -187,6 +188,9 @@ texture_filter = 1
 texture = ExtResource("5_it18k")
 hframes = 3
 vframes = 3
+
+[node name="MusicPlayer" parent="Body/Sprite2D" instance=ExtResource("4_cmpd1")]
+Song = "res://Music/Basement.ogg"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Body/Sprite2D"]
 libraries = {

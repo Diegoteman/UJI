@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://8jtwyqt32b2j"]
+[gd_scene load_steps=12 format=3 uid="uid://8jtwyqt32b2j"]
 
 [ext_resource type="Texture2D" uid="uid://usdv7rs20v4m" path="res://Sprites/Menu/mainscreen.png" id="1_bqmud"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="2_g5clh"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cpo72ems4e55x" path="res://Sprites/Menu/xdull.png" id="7_cot3r"]
 [ext_resource type="Texture2D" uid="uid://3xqm6kmoy11f" path="res://Sprites/Menu/title.png" id="9_gkgly"]
 [ext_resource type="Texture2D" uid="uid://dcy6h374s1o3a" path="res://Sprites/helpscreen.png" id="10_0pidq"]
+[ext_resource type="PackedScene" uid="uid://e42xyr3o4oi2" path="res://Prefabs/music_player.tscn" id="11_4uf67"]
 
 [node name="MainMenu" type="TextureRect"]
 texture_filter = 1
@@ -52,6 +53,9 @@ texture = ExtResource("9_gkgly")
 modulate = Color(1, 1, 1, 0)
 position = Vector2(95.9997, 53.9998)
 texture = ExtResource("10_0pidq")
+
+[node name="MusicPlayer" parent="." instance=ExtResource("11_4uf67")]
+Song = "res://Music/Song1GJ.ogg"
 
 [connection signal="button_down" from="Start" to="." method="_on_start_button_down"]
 [connection signal="button_down" from="Help" to="." method="_on_help_button_down"]
