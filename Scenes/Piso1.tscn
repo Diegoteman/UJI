@@ -345,6 +345,7 @@ rotation = 3.14159
 
 [node name="Trigger3" parent="." instance=ExtResource("9_1mweq")]
 position = Vector2(-61, 25)
+monitoring = false
 Scene = "\"res://Scenes/sotano.tscn\""
 Position = Vector2(80, 180)
 

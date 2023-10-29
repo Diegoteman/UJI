@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cwo1mdeo3gvxu"]
+[gd_scene load_steps=20 format=3 uid="uid://cwo1mdeo3gvxu"]
 
 [ext_resource type="Texture2D" uid="uid://bweteoni47k7g" path="res://Sprites/Scenes/sotanoref.png" id="1_hiadv"]
 [ext_resource type="PackedScene" uid="uid://ctwhvbf28rcw1" path="res://Prefabs/ghost.tscn" id="2_u4ons"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scenes/Body.gd" id="4_vh4ao"]
 [ext_resource type="Texture2D" uid="uid://c3rdvn1cn0wur" path="res://Sprites/possessed_sheet.png" id="5_it18k"]
 [ext_resource type="Script" path="res://Scenes/nun.gd" id="6_rfhb6"]
+[ext_resource type="FontFile" uid="uid://d1omxlcfcr7kv" path="res://Sprites/8bitOperatorPlus-Bold.ttf" id="6_ti4ve"]
 [ext_resource type="Texture2D" uid="uid://dg85kaexb6lr" path="res://Sprites/Characters.png" id="7_tpb48"]
 
 [sub_resource type="Animation" id="Animation_a4jpr"]
@@ -176,14 +177,6 @@ texture = ExtResource("1_hiadv")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.545098, 0.529412, 0.631373, 1)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_u4ons")]
-position = Vector2(632, 20)
-
-[node name="PointLight2D2" type="PointLight2D" parent="CharacterBody2D"]
-energy = 0.5
-texture = ExtResource("3_bocye")
-texture_scale = 0.7
-
 [node name="Body" type="Area2D" parent="."]
 position = Vector2(393, 273)
 scale = Vector2(2, 2)
@@ -204,6 +197,19 @@ libraries = {
 position = Vector2(-5.5, 8)
 shape = SubResource("RectangleShape2D_5os62")
 
+[node name="Timer" type="Timer" parent="Body"]
+one_shot = true
+
+[node name="Label" type="Label" parent="Body"]
+texture_filter = 1
+offset_left = -18.0
+offset_top = -9.5
+offset_right = 77.0
+offset_bottom = 17.5
+scale = Vector2(1e-05, 1e-05)
+theme_override_fonts/font = ExtResource("6_ti4ve")
+text = "[Possess]"
+
 [node name="Nun" type="Area2D" parent="."]
 position = Vector2(152, 228)
 script = ExtResource("6_rfhb6")
@@ -223,6 +229,18 @@ autoplay = "nun"
 libraries = {
 "": SubResource("AnimationLibrary_nlggf")
 }
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_u4ons")]
+position = Vector2(632, 20)
+
+[node name="PointLight2D2" type="PointLight2D" parent="CharacterBody2D"]
+energy = 0.5
+texture = ExtResource("3_bocye")
+texture_scale = 0.7
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(446, 253)
+zoom = Vector2(2, 2)
 
 [connection signal="area_entered" from="Body" to="Body" method="_on_area_entered"]
 [connection signal="area_exited" from="Body" to="Body" method="_on_area_exited"]

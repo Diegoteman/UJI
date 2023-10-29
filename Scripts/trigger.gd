@@ -16,9 +16,9 @@ func _on_area_exited(area):
 func Prompt(drop):
 	var t = create_tween().set_trans(Tween.TRANS_EXPO)
 	if !drop:
-		t.tween_property($Sprite2D, "scale", Vector2.ONE*2, .2)
+		t.tween_property($Sprite2D2, "scale", Vector2.ONE*2, .2)
 	else:
-		t.tween_property($Sprite2D, "scale", Vector2.ZERO, .2)
+		t.tween_property($Sprite2D2, "scale", Vector2.ZERO, .2)
 
 func _input(event): if playerIn && Input.is_action_just_pressed("Haunt"): NextScene()
 

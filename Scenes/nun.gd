@@ -5,10 +5,6 @@ var dead = false
 func Die():
 	if dead: return
 	dead = true
-	GD.freddyDead = true
-	GD.Player.canMove = false
-	UI.Close()
-	$Camera2D.make_current()
 	$NPC/AnimationPlayer.play("Scare")
 	GD.Player.Scare()
 	for i in range(120):
