@@ -29,9 +29,14 @@ func Die():
 	GD.Player.get_node("Camera2D").make_current()
 	GD.Player.canMove = true
 	UI.Open()
+	get_node("../Talk").queue_free()
+	get_node("../Talk4").monitorable = true
 
 func Trigger():
 	get_node("../Talk").queue_free()
-	get_node("../Talk4/CollisionShape").disabled = false
-	if GD.peaDead && GD.femboyDead: get_node("../Nun").queue_free()
+	get_node("../Talk4").monitorable = true
+	if GD.peaDead && GD.femboyDead: 
+		get_node("../Trigger3").monitoring = true
+		get_node("../Trigger3/Sprite2D2").visible = true
+		get_node("../Nun").queue_free()
 	queue_free()

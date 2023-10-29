@@ -41,24 +41,22 @@ func Next():
 	if i == files[k].size()-1:
 		i = 1
 		Close()
-		UI.Open()
 		GD.Player.canMove = true
 		Text.text = ""
 		if Doc2: k = 1
 		return
 	if i == 1:
 		Open()
-		UI.Close()
 		GD.Player.canMove = false
 	var msg = files[k][i]
 	if names[k].size() == 1:
 		Arrow.position.x = 90
 		Arrow.rotation_degrees = 180
 	elif int(msg[0]) == 0:
-		Arrow.position.x = 57
+		Arrow.position.x = 40
 		Arrow.rotation_degrees = -144.7
 	else:
-		Arrow.position.x = 133
+		Arrow.position.x = 140
 		Arrow.rotation_degrees = -215.3
 	var person = names[k][int(msg[0])]
 	Talk(person, msg.replace("0 ", "").replace("1 ", ""))

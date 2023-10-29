@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://hj1w8djfrm2t"]
+[gd_scene load_steps=4 format=3 uid="uid://hj1w8djfrm2t"]
 
 [ext_resource type="Script" path="res://Scripts/trigger.gd" id="1_vswyc"]
+[ext_resource type="Texture2D" uid="uid://dv4mv7edacj4j" path="res://Sprites/arrow (1).png" id="2_ck5qe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdft7"]
 size = Vector2(111, 79)
@@ -10,6 +11,12 @@ script = ExtResource("1_vswyc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_cdft7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -53)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("2_ck5qe")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

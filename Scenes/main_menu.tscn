@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://8jtwyqt32b2j"]
+[gd_scene load_steps=11 format=3 uid="uid://8jtwyqt32b2j"]
 
 [ext_resource type="Texture2D" uid="uid://usdv7rs20v4m" path="res://Sprites/Menu/mainscreen.png" id="1_bqmud"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="2_g5clh"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dgoy86ol2uhmv" path="res://Sprites/Menu/xsalir.png" id="6_2ulku"]
 [ext_resource type="Texture2D" uid="uid://cpo72ems4e55x" path="res://Sprites/Menu/xdull.png" id="7_cot3r"]
 [ext_resource type="Texture2D" uid="uid://3xqm6kmoy11f" path="res://Sprites/Menu/title.png" id="9_gkgly"]
+[ext_resource type="Texture2D" uid="uid://dcy6h374s1o3a" path="res://Sprites/helpscreen.png" id="10_0pidq"]
 
 [node name="MainMenu" type="TextureRect"]
 texture_filter = 1
@@ -46,6 +47,11 @@ texture_hover = ExtResource("6_2ulku")
 [node name="Title" type="Sprite2D" parent="."]
 position = Vector2(96.1663, 54.1665)
 texture = ExtResource("9_gkgly")
+
+[node name="Helpscreen" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(95.9997, 53.9998)
+texture = ExtResource("10_0pidq")
 
 [connection signal="button_down" from="Start" to="." method="_on_start_button_down"]
 [connection signal="button_down" from="Help" to="." method="_on_help_button_down"]

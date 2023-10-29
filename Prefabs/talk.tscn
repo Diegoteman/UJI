@@ -24,12 +24,19 @@ shape = SubResource("RectangleShape2D_7oedt")
 
 [node name="Speech" type="Panel" parent="."]
 z_index = 20
-offset_left = -110.0
-offset_top = -173.0
-offset_right = 110.0
-offset_bottom = -53.0
+offset_left = -90.0
+offset_top = -153.0
+offset_right = 90.0
+offset_bottom = -73.0
 pivot_offset = Vector2(80, 80)
 theme_override_styles/panel = SubResource("StyleBoxFlat_mjp46")
+
+[node name="Arrow" type="Sprite2D" parent="Speech"]
+modulate = Color(0.105882, 0.0156863, 0.14902, 1)
+position = Vector2(140, 82)
+rotation = 3.14159
+scale = Vector2(0.0218821, 0.0218821)
+texture = ExtResource("3_2i8m6")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Speech"]
 layout_mode = 1
@@ -43,14 +50,9 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("2_2pruw")
+theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
-
-[node name="Arrow" type="Sprite2D" parent="Speech"]
-modulate = Color(0.105882, 0.0156863, 0.14902, 1)
-position = Vector2(110, 122)
-rotation = 3.14159
-scale = Vector2(0.0218821, 0.0218821)
-texture = ExtResource("3_2i8m6")
+text = "vsvczdfzc"
 
 [node name="Bocadillo" type="Sprite2D" parent="."]
 texture_filter = 1

@@ -7,7 +7,13 @@ func _on_start_button_down():
 	GD.FindRoot()
 
 func _on_help_button_down():
-	pass # Replace with function body.
+	var t = create_tween()
+	t.tween_property($Helpscreen, "modulate:a", 1, 1).set_trans(Tween.TRANS_SINE)
+
+func _input(event):
+	if Input.is_action_just_pressed("Haunt"):
+		var t = create_tween()
+		t.tween_property($Helpscreen, "modulate:a", 0, 1).set_trans(Tween.TRANS_SINE)
 
 func _on_quit_button_up():
 	get_tree().quit()
