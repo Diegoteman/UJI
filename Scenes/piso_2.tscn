@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bu4fh8df7xs60"]
+[gd_scene load_steps=52 format=3 uid="uid://bu4fh8df7xs60"]
 
 [ext_resource type="Texture2D" uid="uid://ddagqq75o4obi" path="res://Sprites/Scenes/piso2suelo.png" id="1_ir84l"]
 [ext_resource type="Texture2D" uid="uid://cot774i8m2x0d" path="res://Sprites/Scenes/piso2pared.png" id="2_n28he"]
@@ -191,6 +191,21 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bwuhx"]
 size = Vector2(109, 105)
 
+[sub_resource type="Animation" id="Animation_u2wum"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
 [sub_resource type="Animation" id="Animation_j5uqv"]
 resource_name = "die"
 length = 0.3
@@ -205,21 +220,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [2, 1, 0]
-}
-
-[sub_resource type="Animation" id="Animation_u2wum"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m87k7"]
