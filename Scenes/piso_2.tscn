@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bu4fh8df7xs60"]
+[gd_scene load_steps=51 format=3 uid="uid://bu4fh8df7xs60"]
 
 [ext_resource type="Texture2D" uid="uid://ddagqq75o4obi" path="res://Sprites/Scenes/piso2suelo.png" id="1_ir84l"]
 [ext_resource type="Texture2D" uid="uid://cot774i8m2x0d" path="res://Sprites/Scenes/piso2pared.png" id="2_n28he"]
@@ -31,6 +31,8 @@
 [ext_resource type="Texture2D" uid="uid://qaih4dnunh67" path="res://Sprites/Furniture/P2/toilet.png" id="24_dy2bk"]
 [ext_resource type="Texture2D" uid="uid://cud716cqf7omi" path="res://Sprites/Furniture/P2/switch1.png" id="25_dtj0d"]
 [ext_resource type="PackedScene" uid="uid://ckrohao10bhkr" path="res://Prefabs/talk.tscn" id="28_bdx75"]
+[ext_resource type="Texture2D" uid="uid://bdg6s82edavsx" path="res://Sprites/dwajld/kitten_spider.png" id="30_ic4nv"]
+[ext_resource type="Texture2D" uid="uid://dqscs1cjj3xdo" path="res://Sprites/dwajld/discordkitten_ded.png" id="31_qqnrc"]
 
 [sub_resource type="Animation" id="Animation_xdqip"]
 length = 0.001
@@ -187,6 +189,43 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bwuhx"]
 size = Vector2(109, 105)
+
+[sub_resource type="Animation" id="Animation_j5uqv"]
+resource_name = "die"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_u2wum"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m87k7"]
+_data = {
+"RESET": SubResource("Animation_u2wum"),
+"die": SubResource("Animation_j5uqv")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vm0p7"]
 size = Vector2(200, 1026)
@@ -400,6 +439,26 @@ shape = SubResource("RectangleShape2D_bwuhx")
 
 [node name="Timer" type="Timer" parent="Femboy"]
 one_shot = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Femboy"]
+visible = false
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("30_ic4nv")
+hframes = 3
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Femboy/Sprite2D2"]
+libraries = {
+"": SubResource("AnimationLibrary_m87k7")
+}
+
+[node name="Sprite2D3" type="Sprite2D" parent="Femboy"]
+visible = false
+texture_filter = 1
+position = Vector2(97, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("31_qqnrc")
 
 [node name="NPC3" type="Area2D" parent="."]
 position = Vector2(274, -189)

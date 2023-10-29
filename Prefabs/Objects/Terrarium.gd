@@ -36,3 +36,4 @@ func Break(femboy):
 	$Spider.rotation_degrees = 90
 	await t.finished
 	femboy.Die()
+	$Spider.visible = false

@@ -47,7 +47,7 @@ func Haunt():
 			if !obj: return
 			obj.position = position - objOffset * sign(velocity.x)
 	
-	if talk != null && !objGrabbed:
+	if talk != null && !objGrabbed && !obj:
 		talk.Next()
 
 
