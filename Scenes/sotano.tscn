@@ -1,8 +1,162 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwo1mdeo3gvxu"]
+[gd_scene load_steps=19 format=3 uid="uid://cwo1mdeo3gvxu"]
 
 [ext_resource type="Texture2D" uid="uid://bweteoni47k7g" path="res://Sprites/Scenes/sotanoref.png" id="1_hiadv"]
 [ext_resource type="PackedScene" uid="uid://ctwhvbf28rcw1" path="res://Prefabs/ghost.tscn" id="2_u4ons"]
 [ext_resource type="Texture2D" uid="uid://cjdmdpnygxpbw" path="res://Sprites/Light.png" id="3_bocye"]
+[ext_resource type="Script" path="res://Scenes/Body.gd" id="4_vh4ao"]
+[ext_resource type="Texture2D" uid="uid://c3rdvn1cn0wur" path="res://Sprites/possessed_sheet.png" id="5_it18k"]
+[ext_resource type="Script" path="res://Scenes/nun.gd" id="6_rfhb6"]
+[ext_resource type="Texture2D" uid="uid://dg85kaexb6lr" path="res://Sprites/Characters.png" id="7_tpb48"]
+
+[sub_resource type="Animation" id="Animation_a4jpr"]
+resource_name = "Do"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 3, 3.1, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 3, 2, 3, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_smr2s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h53r0"]
+_data = {
+"Do": SubResource("Animation_a4jpr"),
+"RESET": SubResource("Animation_smr2s")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5os62"]
+size = Vector2(52, 19)
+
+[sub_resource type="Animation" id="Animation_qotcs"]
+resource_name = "Paco1"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_16cso"]
+resource_name = "Paco2"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [11, 10]
+}
+
+[sub_resource type="Animation" id="Animation_xnx6u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_g54ko"]
+resource_name = "krug"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 2]
+}
+
+[sub_resource type="Animation" id="Animation_7gfm3"]
+resource_name = "nun"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 7]
+}
+
+[sub_resource type="Animation" id="Animation_h54d2"]
+resource_name = "smurf"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [17, 18]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nlggf"]
+_data = {
+"Paco1": SubResource("Animation_qotcs"),
+"Paco2": SubResource("Animation_16cso"),
+"RESET": SubResource("Animation_xnx6u"),
+"krug": SubResource("Animation_g54ko"),
+"nun": SubResource("Animation_7gfm3"),
+"smurf": SubResource("Animation_h54d2")
+}
 
 [node name="Sotano" type="Node2D"]
 
@@ -29,3 +183,46 @@ position = Vector2(632, 20)
 energy = 0.5
 texture = ExtResource("3_bocye")
 texture_scale = 0.7
+
+[node name="Body" type="Area2D" parent="."]
+position = Vector2(393, 273)
+scale = Vector2(2, 2)
+script = ExtResource("4_vh4ao")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
+texture_filter = 1
+texture = ExtResource("5_it18k")
+hframes = 3
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Body/Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_h53r0")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+position = Vector2(-5.5, 8)
+shape = SubResource("RectangleShape2D_5os62")
+
+[node name="Nun" type="Area2D" parent="."]
+position = Vector2(152, 228)
+script = ExtResource("6_rfhb6")
+
+[node name="NPC" type="Sprite2D" parent="Nun"]
+texture_filter = 1
+position = Vector2(373, 37)
+scale = Vector2(2, 2)
+texture = ExtResource("7_tpb48")
+flip_h = true
+hframes = 5
+vframes = 5
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Nun/NPC"]
+autoplay = "nun"
+libraries = {
+"": SubResource("AnimationLibrary_nlggf")
+}
+
+[connection signal="area_entered" from="Body" to="Body" method="_on_area_entered"]
+[connection signal="area_exited" from="Body" to="Body" method="_on_area_exited"]

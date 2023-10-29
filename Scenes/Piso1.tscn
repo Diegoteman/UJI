@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://un184ixo8gtv"]
+[gd_scene load_steps=32 format=3 uid="uid://un184ixo8gtv"]
 
 [ext_resource type="Texture2D" uid="uid://clgvnxp5tk3tv" path="res://Sprites/Scenes/piso1pared.png" id="1_6ytaq"]
 [ext_resource type="Texture2D" uid="uid://o7r2dit3tqcg" path="res://Sprites/Scenes/piso1suelo.png" id="2_ij7vn"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://hootchkggs58" path="res://Sprites/Furniture/P1/windows.png" id="10_cgof5"]
 [ext_resource type="Texture2D" uid="uid://drvakwqwkjjui" path="res://Sprites/Furniture/P1/mesas.png" id="11_s61vh"]
 [ext_resource type="Texture2D" uid="uid://dv4mv7edacj4j" path="res://Sprites/arrow (1).png" id="18_fofrs"]
+[ext_resource type="PackedScene" uid="uid://c53vwbbvlq6ox" path="res://Prefabs/Objects/flashlight.tscn" id="20_n4m0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4gdr"]
 size = Vector2(200, 1026)
@@ -92,23 +93,6 @@ tracks/0/keys = {
 "values": [3, 2]
 }
 
-[sub_resource type="Animation" id="Animation_h54d2"]
-resource_name = "smurf"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [17, 18]
-}
-
 [sub_resource type="Animation" id="Animation_7gfm3"]
 resource_name = "nun"
 length = 0.8
@@ -124,6 +108,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [8, 7]
+}
+
+[sub_resource type="Animation" id="Animation_h54d2"]
+resource_name = "smurf"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [17, 18]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nlggf"]
@@ -339,6 +340,9 @@ position = Vector2(199, 29)
 Scene = "\"res://Scenes/piso_2.tscn\""
 Position = Vector2(80, 180)
 
+[node name="Sprite2D" parent="Trigger" index="1"]
+rotation = 3.14159
+
 [node name="Trigger3" parent="." instance=ExtResource("9_1mweq")]
 position = Vector2(-61, 25)
 Scene = "\"res://Scenes/sotano.tscn\""
@@ -427,7 +431,12 @@ libraries = {
 "": SubResource("AnimationLibrary_nlggf")
 }
 
+[node name="Object" parent="." instance=ExtResource("20_n4m0y")]
+position = Vector2(-70, 146)
+rotation = 3.14159
+
 [editable path="CharacterBody2D"]
+[editable path="Trigger"]
 [editable path="Trigger3"]
 [editable path="Trigger2"]
 [editable path="Talk2"]

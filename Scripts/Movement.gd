@@ -36,7 +36,7 @@ func Haunt():
 			$Sprite2D/AnimationPlayer.play("Grab")
 			GD.Reparent(obj, self)
 			obj.position = objOffset
-			collision_layer = 4 ; collision_mask = 4
+			collision_layer = 3 ; collision_mask = 3
 		else:
 			objGrabbed = false
 			modulate.a = .63
@@ -47,7 +47,7 @@ func Haunt():
 			if !obj: return
 			obj.position = position - objOffset * sign(velocity.x)
 	
-	if talk != null:
+	if talk != null && !objGrabbed:
 		talk.Next()
 
 
