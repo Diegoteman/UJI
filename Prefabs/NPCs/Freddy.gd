@@ -2,9 +2,6 @@ extends Area2D
 
 var dead = false
 
-func _ready():
-	if GD.freddyDead: Trigger()
-
 func Die():
 	if dead: return
 	dead = true
@@ -29,9 +26,3 @@ func Die():
 	GD.Player.get_node("Camera2D").make_current()
 	GD.Player.canMove = true
 	UI.Open()
-
-func Trigger():
-	get_node("../Talk").queue_free()
-	get_node("../Talk4/CollisionShape").disabled = false
-	if GD.peaDead && GD.femboyDead: get_node("../Nun").queue_free()
-	queue_free()
