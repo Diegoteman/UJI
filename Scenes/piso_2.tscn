@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ddagqq75o4obi" path="res://Sprites/Scenes/piso2suelo.png" id="1_ir84l"]
 [ext_resource type="Texture2D" uid="uid://cot774i8m2x0d" path="res://Sprites/Scenes/piso2pared.png" id="2_n28he"]
+[ext_resource type="PackedScene" uid="uid://e42xyr3o4oi2" path="res://Prefabs/music_player.tscn" id="3_coxew"]
 [ext_resource type="PackedScene" uid="uid://ctwhvbf28rcw1" path="res://Prefabs/ghost.tscn" id="3_pxit1"]
 [ext_resource type="Texture2D" uid="uid://lgomu6mmkgbo" path="res://Sprites/Furniture/P2/bdsmcross.png" id="3_s67ys"]
 [ext_resource type="Script" path="res://Scenes/Femboy.gd" id="4_48e0d"]
@@ -244,6 +245,9 @@ texture = ExtResource("1_ir84l")
 texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("2_n28he")
+
+[node name="MusicPlayer" parent="." instance=ExtResource("3_coxew")]
+Song = "res://Music/Song2.ogg"
 
 [node name="Furniture" type="Node2D" parent="."]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://un184ixo8gtv"]
+[gd_scene load_steps=33 format=3 uid="uid://un184ixo8gtv"]
 
 [ext_resource type="Texture2D" uid="uid://clgvnxp5tk3tv" path="res://Sprites/Scenes/piso1pared.png" id="1_6ytaq"]
+[ext_resource type="PackedScene" uid="uid://e42xyr3o4oi2" path="res://Prefabs/music_player.tscn" id="1_v107o"]
 [ext_resource type="Texture2D" uid="uid://o7r2dit3tqcg" path="res://Sprites/Scenes/piso1suelo.png" id="2_ij7vn"]
 [ext_resource type="PackedScene" uid="uid://ctwhvbf28rcw1" path="res://Prefabs/ghost.tscn" id="3_6x8ma"]
 [ext_resource type="Texture2D" uid="uid://sjrof3wiyg5q" path="res://Sprites/Furniture/P1/banners.png" id="3_x8n1x"]
@@ -144,6 +145,9 @@ size = Vector2(41, 86)
 size = Vector2(46, 86)
 
 [node name="Node2D" type="Node2D"]
+
+[node name="MusicPlayer" parent="." instance=ExtResource("1_v107o")]
+Song = "res://Music/Prty.ogg"
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -365,6 +369,9 @@ position = Vector2(255, -213)
 Scene = "\"res://Scenes/piso_2.tscn\""
 Position = Vector2(80, 180)
 
+[node name="CollisionShape2D" parent="Trigger2" index="0"]
+position = Vector2(4, -5)
+
 [node name="Sprite2D" parent="Trigger2" index="1"]
 position = Vector2(-34, 4)
 rotation = -1.5708
@@ -399,6 +406,11 @@ shape = SubResource("RectangleShape2D_e1nlf")
 [node name="Smurf" type="Area2D" parent="."]
 position = Vector2(-33, -56)
 
+[node name="Talk" parent="Smurf" instance=ExtResource("5_4sbx7")]
+position = Vector2(373, 8)
+Doc1 = "res://Dialogue/Dialogue_smurfcat_1.txt"
+Doc2 = "res://Dialogue/Dialogue_smurfcat_2.txt"
+
 [node name="NPC" type="Sprite2D" parent="Smurf"]
 texture_filter = 1
 position = Vector2(372, 40)
@@ -414,12 +426,20 @@ libraries = {
 "": SubResource("AnimationLibrary_nlggf")
 }
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Smurf"]
+position = Vector2(369, 40)
+shape = SubResource("RectangleShape2D_e1nlf")
+
 [node name="Nun" type="Area2D" parent="."]
 position = Vector2(-154, -167)
 
+[node name="Talk" parent="Nun" instance=ExtResource("5_4sbx7")]
+position = Vector2(249, -109)
+Doc1 = "res://Dialogue/Dialogue_nunkitchen.txt"
+
 [node name="NPC" type="Sprite2D" parent="Nun"]
 texture_filter = 1
-position = Vector2(373, 37)
+position = Vector2(249, -73)
 scale = Vector2(2, 2)
 texture = ExtResource("7_ii7t5")
 hframes = 5
@@ -431,6 +451,10 @@ autoplay = "nun"
 libraries = {
 "": SubResource("AnimationLibrary_nlggf")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nun"]
+position = Vector2(249, -71)
+shape = SubResource("RectangleShape2D_e1nlf")
 
 [node name="Object" parent="." instance=ExtResource("20_n4m0y")]
 position = Vector2(-70, 146)

@@ -1,14 +1,22 @@
-[gd_scene load_steps=28 format=3 uid="uid://c4h5ykg54qv2k"]
+[gd_scene load_steps=36 format=3 uid="uid://c4h5ykg54qv2k"]
 
 [ext_resource type="Texture2D" uid="uid://bmu7sf6sd13be" path="res://Sprites/Scenes/jardin.png" id="1_oq1qp"]
 [ext_resource type="Texture2D" uid="uid://sewu18ee2ww6" path="res://Sprites/tritonman2.png" id="2_1efc0"]
 [ext_resource type="Texture2D" uid="uid://bemcdcvxl4blt" path="res://Sprites/PIERNAS.png" id="3_bqang"]
+[ext_resource type="PackedScene" uid="uid://e42xyr3o4oi2" path="res://Prefabs/music_player.tscn" id="3_nokxn"]
 [ext_resource type="Texture2D" uid="uid://dg85kaexb6lr" path="res://Sprites/Characters.png" id="4_xxi6r"]
 [ext_resource type="Script" path="res://Scenes/Peashooter.gd" id="5_ihubw"]
 [ext_resource type="PackedScene" uid="uid://ctwhvbf28rcw1" path="res://Prefabs/ghost.tscn" id="6_6ne6t"]
 [ext_resource type="Texture2D" uid="uid://bbc0fkmlvvq15" path="res://Sprites/spritesheet__Peashooter.png" id="6_vqnc0"]
 [ext_resource type="PackedScene" uid="uid://crxrsqqlrjrkb" path="res://Prefabs/Objects/Gun.tscn" id="8_6pq18"]
 [ext_resource type="PackedScene" uid="uid://ckrohao10bhkr" path="res://Prefabs/talk.tscn" id="9_hc4xi"]
+[ext_resource type="Texture2D" uid="uid://cp7lqna5nrrto" path="res://Sprites/Furniture/Jardin/banners_(out).png" id="11_0icdo"]
+[ext_resource type="Texture2D" uid="uid://bs4bmypbvest4" path="res://Sprites/Furniture/Jardin/floatie.png" id="12_jd277"]
+[ext_resource type="Texture2D" uid="uid://iybrieylxkd3" path="res://Sprites/Furniture/Jardin/bushes.png" id="13_ggivx"]
+[ext_resource type="Texture2D" uid="uid://br806fq5dp1dt" path="res://Sprites/Furniture/Jardin/rug.png" id="14_fa4jb"]
+[ext_resource type="Texture2D" uid="uid://conm6gsva52xe" path="res://Sprites/Furniture/Jardin/table.png" id="15_ihnim"]
+[ext_resource type="Texture2D" uid="uid://bejd7et5xg57n" path="res://Sprites/Furniture/Jardin/towels.png" id="16_f2157"]
+[ext_resource type="Texture2D" uid="uid://djak7hg2lkhxy" path="res://Sprites/Furniture/Jardin/bar.png" id="17_axjxm"]
 
 [sub_resource type="Animation" id="Animation_tpk3n"]
 length = 0.001
@@ -214,6 +222,9 @@ texture = ExtResource("1_oq1qp")
 [node name="CharacterBody2D" parent="." instance=ExtResource("6_6ne6t")]
 position = Vector2(262, 248)
 
+[node name="MusicPlayer" parent="CharacterBody2D/Sprite2D" index="1" instance=ExtResource("3_nokxn")]
+Song = "res://Music/BossaCowsa.ogg"
+
 [node name="Camera2D" parent="CharacterBody2D" index="4"]
 zoom = Vector2(1.2, 1.2)
 limit_left = -400
@@ -225,6 +236,7 @@ limit_bottom = 400
 position = Vector2(-240, -129)
 
 [node name="Sprite2D" type="Sprite2D" parent="NPC"]
+top_level = true
 texture_filter = 1
 position = Vector2(0, 10)
 scale = Vector2(2, 2)
@@ -242,19 +254,21 @@ position = Vector2(0, 15.0002)
 texture = ExtResource("3_bqang")
 
 [node name="Talk" parent="NPC" instance=ExtResource("9_hc4xi")]
-position = Vector2(3, -17)
+position = Vector2(-47, -29)
 Doc1 = "res://Dialogue/Dialogue_mermaidman_1.txt"
 Doc2 = "res://Dialogue/Dialogue_mermaidman_2.txt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
+position = Vector2(-53, 4)
 shape = SubResource("RectangleShape2D_fwgyp")
 
 [node name="NPC2" type="Area2D" parent="."]
 position = Vector2(9, -183)
 
 [node name="Sprite2D" type="Sprite2D" parent="NPC2"]
+top_level = true
 texture_filter = 1
-position = Vector2(0, 10)
+position = Vector2(305, 65)
 scale = Vector2(2, 2)
 texture = ExtResource("4_xxi6r")
 hframes = 5
@@ -268,11 +282,14 @@ libraries = {
 }
 
 [node name="Talk" parent="NPC2" instance=ExtResource("9_hc4xi")]
-position = Vector2(3, -18)
+top_level = true
+position = Vector2(304, 35)
 Doc1 = "res://Dialogue/Dialogue_barnacleboy_1.txt"
 Doc2 = "res://Dialogue/Dialogue_barnacleboy_2.txt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC2"]
+top_level = true
+position = Vector2(309, 61)
 shape = SubResource("RectangleShape2D_fwgyp")
 
 [node name="Pea" type="Area2D" parent="." groups=["Scared"]]
@@ -280,7 +297,9 @@ position = Vector2(297, -118)
 script = ExtResource("5_ihubw")
 
 [node name="Sprite2D" type="Sprite2D" parent="Pea"]
+top_level = true
 texture_filter = 1
+position = Vector2(246, -192)
 scale = Vector2(2, 2)
 texture = ExtResource("6_vqnc0")
 flip_h = true
@@ -311,21 +330,23 @@ process_material = SubResource("ParticleProcessMaterial_ntu7f")
 lifetime = 1.2
 
 [node name="Talk" parent="Pea" instance=ExtResource("9_hc4xi")]
-position = Vector2(8, -19)
+top_level = true
+position = Vector2(255, -212)
 Doc1 = "res://Dialogue/Dialogue_peashooter_1.txt"
 Doc2 = "res://Dialogue/Dialogue_peashooter_2.txt"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Pea"]
-position = Vector2(8, -3)
+position = Vector2(-40, -59)
 shape = SubResource("RectangleShape2D_fwgyp")
 
 [node name="Object" parent="." instance=ExtResource("8_6pq18")]
-position = Vector2(-371, -230)
+top_level = true
+position = Vector2(110, -7)
 
 [node name="Area2D" type="Area2D" parent="." groups=["Pool"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-232.5, -121)
+position = Vector2(-235, -123)
 shape = SubResource("RectangleShape2D_16els")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -354,5 +375,47 @@ shape = SubResource("RectangleShape2D_ejw1g")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(23, -430)
 shape = SubResource("RectangleShape2D_ejw1g")
+
+[node name="Banners(out)" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("11_0icdo")
+
+[node name="Floatie" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(6, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("12_jd277")
+
+[node name="Bushes" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("13_ggivx")
+
+[node name="Rug" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, -6)
+scale = Vector2(2, 2)
+texture = ExtResource("14_fa4jb")
+
+[node name="Table" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("15_ihnim")
+
+[node name="Towels" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-4, -3)
+scale = Vector2(2, 2)
+texture = ExtResource("16_f2157")
+
+[node name="Bar" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("17_axjxm")
 
 [editable path="CharacterBody2D"]
