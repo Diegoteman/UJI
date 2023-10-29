@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://un184ixo8gtv"]
+[gd_scene load_steps=30 format=3 uid="uid://un184ixo8gtv"]
 
 [ext_resource type="Texture2D" uid="uid://clgvnxp5tk3tv" path="res://Sprites/Scenes/piso1pared.png" id="1_6ytaq"]
 [ext_resource type="Texture2D" uid="uid://o7r2dit3tqcg" path="res://Sprites/Scenes/piso1suelo.png" id="2_ij7vn"]
@@ -91,12 +91,48 @@ tracks/0/keys = {
 "values": [3, 2]
 }
 
+[sub_resource type="Animation" id="Animation_h54d2"]
+resource_name = "smurf"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [17, 18]
+}
+
+[sub_resource type="Animation" id="Animation_7gfm3"]
+resource_name = "nun"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 7]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nlggf"]
 _data = {
 "Paco1": SubResource("Animation_qotcs"),
 "Paco2": SubResource("Animation_16cso"),
 "RESET": SubResource("Animation_xnx6u"),
-"krug": SubResource("Animation_g54ko")
+"krug": SubResource("Animation_g54ko"),
+"nun": SubResource("Animation_7gfm3"),
+"smurf": SubResource("Animation_h54d2")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhomu"]
@@ -307,6 +343,11 @@ position = Vector2(-293, -212)
 Doc1 = "res://Dialogue/Conversation_freddy_1.txt"
 Doc2 = "res://Dialogue/Conversation_freddy_2.txt"
 
+[node name="Talk4" parent="." instance=ExtResource("5_4sbx7")]
+position = Vector2(-250, -225)
+Doc1 = "res://Dialogue/Dialogue_krueger.txt"
+Doc2 = ""
+
 [node name="Talk2" parent="." instance=ExtResource("5_4sbx7")]
 position = Vector2(-79, -82)
 Doc1 = "res://Dialogue/Dialogue_notpaco.txt"
@@ -322,6 +363,42 @@ Doc1 = "res://Dialogue/Dialogue_paco.txt"
 [node name="CollisionShape2D" parent="Talk3" index="0"]
 position = Vector2(7, 2)
 shape = SubResource("RectangleShape2D_e1nlf")
+
+[node name="Smurf" type="Area2D" parent="."]
+position = Vector2(-33, -56)
+
+[node name="NPC" type="Sprite2D" parent="Smurf"]
+texture_filter = 1
+position = Vector2(372, 40)
+scale = Vector2(2, 2)
+texture = ExtResource("7_ii7t5")
+hframes = 5
+vframes = 5
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Smurf/NPC"]
+autoplay = "smurf"
+libraries = {
+"": SubResource("AnimationLibrary_nlggf")
+}
+
+[node name="Nun" type="Area2D" parent="."]
+position = Vector2(-154, -167)
+
+[node name="NPC" type="Sprite2D" parent="Nun"]
+texture_filter = 1
+position = Vector2(373, 37)
+scale = Vector2(2, 2)
+texture = ExtResource("7_ii7t5")
+hframes = 5
+vframes = 5
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Nun/NPC"]
+autoplay = "nun"
+libraries = {
+"": SubResource("AnimationLibrary_nlggf")
+}
 
 [editable path="CharacterBody2D"]
 [editable path="Talk2"]

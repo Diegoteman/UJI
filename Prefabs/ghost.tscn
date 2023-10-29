@@ -117,7 +117,7 @@ modulate = Color(1, 1, 1, 0.63)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_onowh")
-MovementSpeed = 30
+MovementSpeed = 20
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -159,7 +159,7 @@ position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_1luip")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 

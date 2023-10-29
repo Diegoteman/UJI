@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwo1mdeo3gvxu"]
+[gd_scene load_steps=6 format=3 uid="uid://cwo1mdeo3gvxu"]
 
 [ext_resource type="Texture2D" uid="uid://bweteoni47k7g" path="res://Sprites/Scenes/sotanoref.png" id="1_hiadv"]
 [ext_resource type="PackedScene" uid="uid://ctwhvbf28rcw1" path="res://Prefabs/ghost.tscn" id="2_u4ons"]
 [ext_resource type="Texture2D" uid="uid://cjdmdpnygxpbw" path="res://Sprites/Light.png" id="3_bocye"]
+[ext_resource type="Texture2D" uid="uid://d4hr61mlw034n" path="res://Sprites/nun_walk.png" id="4_gsmpx"]
+[ext_resource type="Texture2D" uid="uid://c8kopq7lctfnh" path="res://Sprites/ghost_ded.png" id="5_xgofh"]
 
 [node name="Sotano" type="Node2D"]
 
@@ -29,3 +31,19 @@ position = Vector2(632, 20)
 energy = 0.5
 texture = ExtResource("3_bocye")
 texture_scale = 0.7
+
+[node name="Nun" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Nun"]
+texture_filter = 1
+position = Vector2(530, 263)
+scale = Vector2(2, 2)
+texture = ExtResource("4_gsmpx")
+flip_h = true
+hframes = 4
+
+[node name="GhostDed" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(389, 271)
+scale = Vector2(2, 2)
+texture = ExtResource("5_xgofh")
