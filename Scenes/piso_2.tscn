@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bu4fh8df7xs60"]
 
-[ext_resource type="Texture2D" uid="uid://d2w5g44hjpyyp" path="res://Sprites/Scenes/piso2suelo.png" id="1_ir84l"]
+[ext_resource type="Texture2D" uid="uid://ddagqq75o4obi" path="res://Sprites/Scenes/piso2suelo.png" id="1_ir84l"]
 [ext_resource type="Texture2D" uid="uid://cot774i8m2x0d" path="res://Sprites/Scenes/piso2pared.png" id="2_n28he"]
 [ext_resource type="PackedScene" uid="uid://ctwhvbf28rcw1" path="res://Prefabs/ghost.tscn" id="3_pxit1"]
 [ext_resource type="Script" path="res://Scenes/Femboy.gd" id="4_48e0d"]
